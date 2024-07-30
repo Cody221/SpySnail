@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ckjgwhf7jey3a"
+path="res://.godot/imported/bend-medium.obj-88f66fdb30b9d830e925e9cf9e1f100b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bend-medium.obj-88f66fdb30b9d830e925e9cf9e1f100b.mesh"]
+
+source_file="res://OBJ format/bend-medium.obj"
+dest_files=["res://.godot/imported/bend-medium.obj-88f66fdb30b9d830e925e9cf9e1f100b.mesh", "res://.godot/imported/bend-medium.obj-88f66fdb30b9d830e925e9cf9e1f100b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

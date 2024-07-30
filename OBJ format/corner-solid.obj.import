@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b28g4l4y4ena0"
+path="res://.godot/imported/corner-solid.obj-77d7ab4e76959c01dd50515bd859602e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/corner-solid.obj-77d7ab4e76959c01dd50515bd859602e.mesh"]
+
+source_file="res://OBJ format/corner-solid.obj"
+dest_files=["res://.godot/imported/corner-solid.obj-77d7ab4e76959c01dd50515bd859602e.mesh", "res://.godot/imported/corner-solid.obj-77d7ab4e76959c01dd50515bd859602e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

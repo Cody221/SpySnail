@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpc244pub12o2"
+path="res://.godot/imported/curve-wide-medium.obj-9439f41c3ae216be2a86845876899805.mesh"
+
+[deps]
+
+files=["res://.godot/imported/curve-wide-medium.obj-9439f41c3ae216be2a86845876899805.mesh"]
+
+source_file="res://OBJ format/curve-wide-medium.obj"
+dest_files=["res://.godot/imported/curve-wide-medium.obj-9439f41c3ae216be2a86845876899805.mesh", "res://.godot/imported/curve-wide-medium.obj-9439f41c3ae216be2a86845876899805.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

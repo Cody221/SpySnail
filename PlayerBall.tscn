@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu1nry2w4vhae"]
+
+[ext_resource type="Script" path="res://BallMovement.gd" id="1_re8iq"]
+[ext_resource type="PackedScene" uid="uid://c775yrl60rmsy" path="res://marble.tscn" id="2_mf6oc"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="3_gf3yx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
+
+[node name="PlayerBall" type="RigidBody3D"]
+script = ExtResource("1_re8iq")
+
+[node name="marble-high" parent="." instance=ExtResource("2_mf6oc")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.398531, 0, 0, 0, 0.398531, 0, 0, 0, 0.398531, 0, 0, 0)
+shape = SubResource("SphereShape3D_8bp8f")
+
+[node name="CameraArm" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("3_gf3yx")
+offset = Vector3(0, 0, 2)
+
+[node name="Camera3D" type="Camera3D" parent="CameraArm"]

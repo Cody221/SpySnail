@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gutletwfrsvh"
+path="res://.godot/imported/s-curve-right-large.obj-9bdca49bd378214492d96a0a69f9ed8e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/s-curve-right-large.obj-9bdca49bd378214492d96a0a69f9ed8e.mesh"]
+
+source_file="res://OBJ format/s-curve-right-large.obj"
+dest_files=["res://.godot/imported/s-curve-right-large.obj-9bdca49bd378214492d96a0a69f9ed8e.mesh", "res://.godot/imported/s-curve-right-large.obj-9bdca49bd378214492d96a0a69f9ed8e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://caxw78npj3nf3"]
+
+[ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://MapBuildingBlocks/helix_left.tscn" id="2_5giji"]
+[ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://PlayerBall.tscn" id="2_tahvf"]
+[ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://MapBuildingBlocks/wave_c_2.tscn" id="3_htw3a"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PlayerBall" parent="." instance=ExtResource("2_tahvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.568902, 2.86285, 0.669056)
+
+[node name="helix-left2" parent="." instance=ExtResource("2_5giji")]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 2, 0, 1)
+
+[node name="wave-c2" parent="." instance=ExtResource("3_htw3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)

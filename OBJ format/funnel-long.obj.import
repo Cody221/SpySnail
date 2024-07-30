@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ut8se4vv8sij"
+path="res://.godot/imported/funnel-long.obj-cea5adb8f96fcece9e13afbe55cb9c90.mesh"
+
+[deps]
+
+files=["res://.godot/imported/funnel-long.obj-cea5adb8f96fcece9e13afbe55cb9c90.mesh"]
+
+source_file="res://OBJ format/funnel-long.obj"
+dest_files=["res://.godot/imported/funnel-long.obj-cea5adb8f96fcece9e13afbe55cb9c90.mesh", "res://.godot/imported/funnel-long.obj-cea5adb8f96fcece9e13afbe55cb9c90.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

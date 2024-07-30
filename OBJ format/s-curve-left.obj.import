@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bs2y4xfkws3fq"
+path="res://.godot/imported/s-curve-left.obj-ac6a806bd320b9cb9eefe6999a153ee3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/s-curve-left.obj-ac6a806bd320b9cb9eefe6999a153ee3.mesh"]
+
+source_file="res://OBJ format/s-curve-left.obj"
+dest_files=["res://.godot/imported/s-curve-left.obj-ac6a806bd320b9cb9eefe6999a153ee3.mesh", "res://.godot/imported/s-curve-left.obj-ac6a806bd320b9cb9eefe6999a153ee3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

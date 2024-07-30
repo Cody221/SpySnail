@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djs0pnw6hpf0s"
+path="res://.godot/imported/split-right.obj-c72f0934c8c7c4e8fc66cbc97ffbe8da.mesh"
+
+[deps]
+
+files=["res://.godot/imported/split-right.obj-c72f0934c8c7c4e8fc66cbc97ffbe8da.mesh"]
+
+source_file="res://OBJ format/split-right.obj"
+dest_files=["res://.godot/imported/split-right.obj-c72f0934c8c7c4e8fc66cbc97ffbe8da.mesh", "res://.godot/imported/split-right.obj-c72f0934c8c7c4e8fc66cbc97ffbe8da.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

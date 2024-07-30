@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c775yrl60rmsy"]
+
+[ext_resource type="ArrayMesh" uid="uid://dvlhow85st7f0" path="res://OBJ format/marble-high.obj" id="1_51hhx"]
+
+[node name="marble-high" type="Node3D"]
+
+[node name="(_ignore)" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00493646, 0, 0.00269675)
+mesh = ExtResource("1_51hhx")
+skeleton = NodePath("")

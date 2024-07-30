@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bj7r26513w68l"
+path="res://.godot/imported/ramp-long-d.obj-ec8c674440ec3a448226c05a0918b750.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ramp-long-d.obj-ec8c674440ec3a448226c05a0918b750.mesh"]
+
+source_file="res://OBJ format/ramp-long-d.obj"
+dest_files=["res://.godot/imported/ramp-long-d.obj-ec8c674440ec3a448226c05a0918b750.mesh", "res://.godot/imported/ramp-long-d.obj-ec8c674440ec3a448226c05a0918b750.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
