@@ -19,6 +19,6 @@ func _physics_process(delta):
 		
 		direction = (end - start)
 		
-		apply_impulse(Vector3(-direction.x, direction.y, 0))
+		apply_impulse(Vector3(-direction.x, direction.y, 0) * delta)
 	
 

@@ -1,20 +1,20 @@
-extends Node3D
+extends Camera3D
 
-@export var offset: Vector3
+@onready var parent = get_parent()
+var initialOffset
+var currentOffset
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	initialOffset = position - parent.position
+	currentOffset = initialOffset
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	position = get_parent().position - offset
-	look_at_from_position(position, get_parent().position)
+func _process(delta):
+	look_at_from_position(parent.position + currentOffset, parent.position)
 	
-	if Input.is_action_pressed("RightMouse"):
-		pass
+	if Input.is_key_pressed(KEY_D):
+		currentOffset += Vector3.RIGHT * delta
 		
-func _input(event):
-	if (event is InputEventMouseMotion and Input.is_action_pressed("RightMouse")):
-		position *= Vector3(event.get_velocity().x,event.get_velocity().y, 0)
+	currentOffset.clamp(Vector3.ZERO, initialOffset)
