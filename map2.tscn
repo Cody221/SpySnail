@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://caxw78npj3nf3"]
+[gd_scene load_steps=5 format=3 uid="uid://caxw78npj3nf3"]
 
 [ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://MapBuildingBlocks/helix_left.tscn" id="2_5giji"]
 [ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://PlayerBall.tscn" id="2_tahvf"]
 [ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://MapBuildingBlocks/wave_c_2.tscn" id="3_htw3a"]
+[ext_resource type="PackedScene" uid="uid://s1u3kf2lo3xn" path="res://MapBuildingBlocks/bend_2.tscn" id="4_fmxus"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -14,3 +15,9 @@ transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 2, 0, 
 
 [node name="wave-c2" parent="." instance=ExtResource("3_htw3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="bend2" parent="." instance=ExtResource("4_fmxus")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.37472e-05, 0, -3.4969)
+
+[node name="bend3" parent="." instance=ExtResource("4_fmxus")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.00016, 0, -2.50063)
