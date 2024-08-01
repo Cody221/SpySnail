@@ -15,11 +15,11 @@ script = ExtResource("1_re8iq")
 transform = Transform3D(0.398531, 0, 0, 0, 0.398531, 0, 0, 0, 0.398531, 0, 0, 0)
 shape = SubResource("SphereShape3D_8bp8f")
 
-[node name="CameraGimbal" type="Node3D" parent="."]
+[node name="YGimbal" type="Node3D" parent="."]
 top_level = true
 script = ExtResource("3_nbg47")
 
-[node name="InnerGimbal" type="Node3D" parent="CameraGimbal"]
+[node name="XGimbal" type="Node3D" parent="YGimbal"]
 
-[node name="Camera3D" type="Camera3D" parent="CameraGimbal/InnerGimbal"]
+[node name="Camera3D" type="Camera3D" parent="YGimbal/XGimbal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)

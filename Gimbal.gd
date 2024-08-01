@@ -1,6 +1,7 @@
 extends Node3D
 
-@onready var inner = $InnerGimbal
+@onready var inner = $XGimbal
+@onready var cam = $XGimbal/Camera3D
 
 @export var mouseSens = 0.005
 var invertY = false
