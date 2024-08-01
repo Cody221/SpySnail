@@ -8,7 +8,7 @@ var end
 
 @onready var cam = $YGimbal/XGimbal/Camera3D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	if(Input.is_action_just_pressed("LeftMouse")):
 		start = get_viewport().get_mouse_position()

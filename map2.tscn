@@ -11,29 +11,31 @@
 [node name="PlayerBall" parent="." instance=ExtResource("2_tahvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618474, 0.638594, 0.527285)
 
-[node name="helix-left2" parent="." instance=ExtResource("2_5giji")]
-transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -5.50148, 0, 1)
-
-[node name="wave-c2" parent="." instance=ExtResource("3_htw3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50148, 0, -1)
-
-[node name="bend2" parent="." instance=ExtResource("4_fmxus")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.50142, 0, -3.4969)
-
-[node name="bend3" parent="." instance=ExtResource("4_fmxus")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.50164, 0, -2.50063)
-
-[node name="funnel2" parent="." instance=ExtResource("5_kd23s")]
-transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, -6.1926, 0, 4.13429)
-
-[node name="funnel3" parent="." instance=ExtResource("5_kd23s")]
-transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, 7.1926, 0, -3.13429)
-
-[node name="funnel5" parent="." instance=ExtResource("5_kd23s")]
-transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, 7.1926, 0, 4.13429)
-
-[node name="funnel4" parent="." instance=ExtResource("5_kd23s")]
-transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, -6.1926, 0, -3.13429)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.891561, 0.452902, 0, -0.452902, -0.891561, 0, 0, 0)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="helix-left2" parent="Node" instance=ExtResource("2_5giji")]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -5.50148, 0, 1)
+
+[node name="wave-c2" parent="Node" instance=ExtResource("3_htw3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50148, 0, -1)
+
+[node name="bend2" parent="Node" instance=ExtResource("4_fmxus")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.50142, 0, -3.4969)
+
+[node name="bend3" parent="Node" instance=ExtResource("4_fmxus")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.50164, 0, -2.50063)
+
+[node name="funnel2" parent="Node" instance=ExtResource("5_kd23s")]
+transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, -6.1926, 0, 4.13429)
+
+[node name="funnel3" parent="Node" instance=ExtResource("5_kd23s")]
+transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, 7.1926, 0, -3.13429)
+
+[node name="funnel5" parent="Node" instance=ExtResource("5_kd23s")]
+transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, 7.1926, 0, 4.13429)
+
+[node name="funnel4" parent="Node" instance=ExtResource("5_kd23s")]
+transform = Transform3D(13.3852, 0, 0, 0, -1.00156, 6.3544e-07, 0, -8.75591e-08, -7.26859, -6.1926, 0, -3.13429)
