@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu1nry2w4vhae"]
 
-[ext_resource type="Script" path="res://BallMovement.gd" id="1_re8iq"]
-[ext_resource type="PackedScene" uid="uid://c775yrl60rmsy" path="res://marble.tscn" id="2_mf6oc"]
-[ext_resource type="Script" path="res://Gimbal.gd" id="3_nbg47"]
+[ext_resource type="Script" path="res://Scripts/BallMovement.gd" id="1_re8iq"]
+[ext_resource type="PackedScene" uid="uid://c775yrl60rmsy" path="res://Scenes/marble.tscn" id="2_mf6oc"]
+[ext_resource type="Script" path="res://Scripts/Gimbal.gd" id="3_nbg47"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
 

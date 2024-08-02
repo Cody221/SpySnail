@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://caxw78npj3nf3"]
+
+[ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://Scenes/MapBuildingBlocks/helix_left.tscn" id="2_5giji"]
+[ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://Scenes/PlayerBall.tscn" id="2_tahvf"]
+[ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="3_htw3a"]
+[ext_resource type="PackedScene" uid="uid://s1u3kf2lo3xn" path="res://Scenes/MapBuildingBlocks/bend_2.tscn" id="4_fmxus"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PlayerBall" parent="." instance=ExtResource("2_tahvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274711, 2.5465, 0.70797)
+mass = 0.5
+linear_damp_mode = 1
+linear_damp = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.891561, 0.452902, 0, -0.452902, -0.891561, 0, 0, 0)
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="helix-left2" parent="Map" instance=ExtResource("2_5giji")]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 1.2097, 0, 1)
+
+[node name="wave-c2" parent="Map" instance=ExtResource("3_htw3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209704, 0, -1)
+
+[node name="bend2" parent="Map" instance=ExtResource("4_fmxus")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.790236, 0, -3.4969)
+
+[node name="bend3" parent="Map" instance=ExtResource("4_fmxus")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.79046, 0, -2.50063)
