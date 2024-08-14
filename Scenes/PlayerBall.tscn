@@ -7,6 +7,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
 
 [node name="PlayerBall" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_re8iq")
 
 [node name="marble-high" parent="." instance=ExtResource("2_mf6oc")]
