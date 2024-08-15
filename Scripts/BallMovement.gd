@@ -10,10 +10,11 @@ var end = Vector3.ZERO
 
 func _physics_process(_delta):
 	if(Input.is_action_just_pressed("LeftMouse")):
-		start = cam.project_position(get_viewport().get_mouse_position(), cam.position.z)
-		
+		#start = cam.project_position(get_viewport().get_mouse_position(), cam.position.z)
+		DebugLayer.draw.DebugVector.new()
 	
 	if(Input.is_action_pressed("LeftMouse")):
+		start = position
 		end = get_viewport().get_mouse_position()
 		end = cam.project_position(end, cam.position.z)
 		direction = start - end

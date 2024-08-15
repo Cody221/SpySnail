@@ -10,7 +10,7 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="PlayerBall" parent="." instance=ExtResource("2_tahvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274711, 2.5465, 0.70797)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.279822, 2.5465, 0.711808)
 mass = 0.5
 linear_damp_mode = 1
 linear_damp = 1.0
