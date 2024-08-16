@@ -2,15 +2,11 @@ extends Node3D
 
 @export var fanRange: int
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	var space = get_world_3d().direct_space_state
 	#start of ray is position and range is the fan range
+	#seperate query for each point around the fan plus the center 
 	var query0 = PhysicsRayQueryParameters3D.create(position, position + Vector3(0, fanRange, 0))
 	var query1 = PhysicsRayQueryParameters3D.create(position + Vector3(0, 0, 0.5), position + Vector3(0, fanRange, 0))
 	var query2 = PhysicsRayQueryParameters3D.create(position + Vector3(0, 0, -0.5), position + Vector3(0, fanRange, 0))
@@ -22,7 +18,7 @@ func _physics_process(delta):
 	var result
 	
 	for i in array.size():
-		array[i].set_collision_mask(2)
+		array[i].set_collision_mask(2) #collisionMask 2 is the players layer 
 		result = space.intersect_ray(array[i])
 		if result:
 			result.collider.linear_velocity = Vector3(0, 10, 0)

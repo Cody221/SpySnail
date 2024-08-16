@@ -8,13 +8,14 @@ var end = Vector3.ZERO
 
 @onready var cam = $YGimbal/XGimbal/Camera3D
 
+func _ready():
+	DebugLayer.draw.add_vector(self, "direction", 1, 4, Color(0, 1, 0, 0.5))
+
 func _physics_process(_delta):
 	if(Input.is_action_just_pressed("LeftMouse")):
-		#start = cam.project_position(get_viewport().get_mouse_position(), cam.position.z)
-		DebugLayer.draw.DebugVector.new()
+		start = cam.project_position(get_viewport().get_mouse_position(), cam.position.z)
 	
 	if(Input.is_action_pressed("LeftMouse")):
-		start = position
 		end = get_viewport().get_mouse_position()
 		end = cam.project_position(end, cam.position.z)
 		direction = start - end
@@ -24,6 +25,9 @@ func _physics_process(_delta):
 		direction = Vector3.ZERO
 		
 
+func process_movement(initial_velocity, new_velocity):
+	if(initial_velocity.angle_to(new_velocity) >= PI):
+		linear_velocity = new_velocity + initial_velocity.length()
 
 
 

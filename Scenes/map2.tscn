@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="3_htw3a"]
 [ext_resource type="PackedScene" uid="uid://s1u3kf2lo3xn" path="res://Scenes/MapBuildingBlocks/bend_2.tscn" id="4_fmxus"]
 [ext_resource type="PackedScene" uid="uid://buv1f14ir3fbe" path="res://Scenes/MapBuildingBlocks/fan_four_full.tscn" id="5_ocu6o"]
-[ext_resource type="Script" path="res://Scenes/GameManager.gd" id="6_s4tx2"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="6_s4tx2"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -34,7 +34,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.790
 
 [node name="fan-four2" parent="." instance=ExtResource("5_ocu6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30384, -0.341552, -3.49969)
-fanRange = 10
+fanRange = 5
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("6_s4tx2")
