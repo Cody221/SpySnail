@@ -1,3 +1,5 @@
+#YGimbal controls rotation about the y axis
+#XGimbal controls rotation about the x axis
 extends Node3D
 
 @onready var inner = $XGimbal
