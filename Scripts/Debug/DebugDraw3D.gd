@@ -15,8 +15,12 @@ class Vector:
 		color = _color
 	
 	func draw(node, cam):
+		var objProp = object.get(property)
 		var start = cam.unproject_position(object.global_transform.origin)
-		var end = cam.unproject_position(object.global_transform.origin + object.get(property))
+		if(objProp is Vector2):
+			objProp = Vector3(objProp.x, objProp.y, 0)
+		
+		var end = cam.unproject_position(object.global_transform.origin + objProp)
 		node.draw_line(start, end, color, width)
 		node.draw_triangle(end, start.direction_to(end), width * 2, color)
 	
