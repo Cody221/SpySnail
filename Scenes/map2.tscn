@@ -10,7 +10,7 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="PlayerBall" parent="." instance=ExtResource("2_tahvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.279822, 2.86949, 1.61526)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235676, 2.6409, 0.670844)
 mass = 0.5
 linear_damp_mode = 1
 linear_damp = 1.0
@@ -33,7 +33,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.790
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.79046, 0, -2.50063)
 
 [node name="fan-four2" parent="." instance=ExtResource("5_ocu6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301972, 1.87469, 1.5667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29338, -0.222316, -3.50636)
 fanRange = 5
 
 [node name="GameManager" type="Node" parent="."]
