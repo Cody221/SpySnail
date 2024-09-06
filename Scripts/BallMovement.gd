@@ -11,7 +11,7 @@ var end = Vector3.ZERO
 @onready var yGimbal = $YGimbal
 
 func _ready():
-	DebugLayer.draw.add_vector(self, "direction", 1, 4, Color(0, 1, 0, 0.5))
+	#DebugLayer.draw.add_vector(self, "direction", 1, 4, Color(0, 1, 0, 0.5))
 	pass
 
 func _physics_process(delta):
@@ -27,8 +27,12 @@ func _physics_process(delta):
 	
 	if(Input.is_action_just_released("LeftMouse")):
 		linear_velocity = Vector3(direction.x, 0, direction.y) * delta
-		direction = Vector2.ZERO
+		direction = Vector3.ZERO
 		
+	
+	if(Input.is_key_pressed(KEY_SPACE)):
+		#charge jump 
+		pass
 
 func process_movement(initial_velocity, new_velocity):
 	if(initial_velocity.angle_to(new_velocity) >= PI):
