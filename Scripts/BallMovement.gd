@@ -3,15 +3,20 @@ extends RigidBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var direction = Vector2.ZERO
+var drawDirection = Vector3.ZERO #essentially a copy of direction just used to be compatible with the draw.add_vector and be oriented the correct way
 var start = Vector3.ZERO
 var end = Vector3.ZERO
 
-@export var moveSpeed : int
+var jumpCount = 1
+
+@export var jumpForce : int
 #@onready var cam = $YGimbal/XGimbal/Camera3D
 @onready var yGimbal = $YGimbal
 
 func _ready():
-	#DebugLayer.draw.add_vector(self, "direction", 1, 4, Color(0, 1, 0, 0.5))
+	DebugLayer.draw.add_vector(self, "drawDirection", 1, 4, Color(0, 1, 0, 0.5))
+	contact_monitor = true
+	max_contacts_reported = 1
 	pass
 
 func _physics_process(delta):
@@ -20,23 +25,18 @@ func _physics_process(delta):
 	
 	if(Input.is_action_pressed("LeftMouse")):
 		end = get_viewport().get_mouse_position()
-		#end = cam.project_position(end, cam.position.z)
 		direction = start - end
-		direction = direction.rotated(-yGimbal.rotation.y)
-		
+		direction = direction.rotated(-yGimbal.rotation.y) * delta
+		drawDirection = Vector3(direction.x, 0, direction.y)
 	
 	if(Input.is_action_just_released("LeftMouse")):
-		linear_velocity = Vector3(direction.x, 0, direction.y) * delta
-		direction = Vector3.ZERO
-		
+		set_axis_velocity(Vector3(direction.x, 0, direction.y)) #don't need to multiply by delta here since already did before
+		drawDirection = Vector3.ZERO
 	
-	if(Input.is_key_pressed(KEY_SPACE)):
-		#charge jump 
-		pass
+	if(Input.is_action_just_pressed("Jump") and (get_contact_count() != 0)):
+		set_axis_velocity(Vector3(0, jumpForce, 0))
+	
 
-func process_movement(initial_velocity, new_velocity):
-	if(initial_velocity.angle_to(new_velocity) >= PI):
-		linear_velocity = new_velocity + initial_velocity.length()
 
 
 

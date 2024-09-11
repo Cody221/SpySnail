@@ -15,7 +15,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207737, 2.67972, 8.29563)
 mass = 0.5
 linear_damp_mode = 1
 linear_damp = 1.0
-moveSpeed = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.891561, 0.452902, 0, -0.452902, -0.891561, 0, 0, 0)
