@@ -33,6 +33,8 @@ func _physics_process(delta):
 		set_axis_velocity(Vector3(direction.x, 0, direction.y)) #don't need to multiply by delta here since already did before
 		drawDirection = Vector3.ZERO
 	
+	#checks if you're in contact with something before allowing you to jump
+	#this means you can jump off of walls and potentially ceilings as well if it's timed correctly 
 	if(Input.is_action_just_pressed("Jump") and (get_contact_count() != 0)):
 		set_axis_velocity(Vector3(0, jumpForce, 0))
 	
