@@ -1,5 +1,7 @@
 #YGimbal controls rotation about the y axis
 #XGimbal controls rotation about the x axis
+
+#Should also use a "SpringArm3D" to control camera pos, using the margin you can offset from collisions
 extends Node3D
 
 @onready var inner = $XGimbal

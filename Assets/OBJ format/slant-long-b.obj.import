@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dct25120qq4wq"
+path="res://.godot/imported/slant-long-b.obj-cafcda4c46783aa13c85ba7b04d32b35.mesh"
+
+[deps]
+
+files=["res://.godot/imported/slant-long-b.obj-cafcda4c46783aa13c85ba7b04d32b35.mesh"]
+
+source_file="res://Assets/OBJ format/slant-long-b.obj"
+dest_files=["res://.godot/imported/slant-long-b.obj-cafcda4c46783aa13c85ba7b04d32b35.mesh", "res://.godot/imported/slant-long-b.obj-cafcda4c46783aa13c85ba7b04d32b35.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

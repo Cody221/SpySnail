@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mabqhlmg00ti"
+path="res://.godot/imported/support-four-top-double.obj-48f29bae815313d5f1639d826cd8fb9e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/support-four-top-double.obj-48f29bae815313d5f1639d826cd8fb9e.mesh"]
+
+source_file="res://Assets/OBJ format/support-four-top-double.obj"
+dest_files=["res://.godot/imported/support-four-top-double.obj-48f29bae815313d5f1639d826cd8fb9e.mesh", "res://.godot/imported/support-four-top-double.obj-48f29bae815313d5f1639d826cd8fb9e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

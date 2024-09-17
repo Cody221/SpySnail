@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2dyn3v2y0x1q"
+path="res://.godot/imported/helix-left.obj-fb39dbeafe0f8ca3ff4e3491e8ea5f08.mesh"
+
+[deps]
+
+files=["res://.godot/imported/helix-left.obj-fb39dbeafe0f8ca3ff4e3491e8ea5f08.mesh"]
+
+source_file="res://Assets/OBJ format/helix-left.obj"
+dest_files=["res://.godot/imported/helix-left.obj-fb39dbeafe0f8ca3ff4e3491e8ea5f08.mesh", "res://.godot/imported/helix-left.obj-fb39dbeafe0f8ca3ff4e3491e8ea5f08.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmxt2xbjgyoqf"
+path="res://.godot/imported/support-color-two-middle.obj-fb6346b1a8120d1a9a606d10c3d136fd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/support-color-two-middle.obj-fb6346b1a8120d1a9a606d10c3d136fd.mesh"]
+
+source_file="res://Assets/OBJ format/support-color-two-middle.obj"
+dest_files=["res://.godot/imported/support-color-two-middle.obj-fb6346b1a8120d1a9a606d10c3d136fd.mesh", "res://.godot/imported/support-color-two-middle.obj-fb6346b1a8120d1a9a606d10c3d136fd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

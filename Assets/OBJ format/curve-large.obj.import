@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhdhtssttbjx7"
+path="res://.godot/imported/curve-large.obj-ffaf9d57b31a17fdfa708b80827b39cc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/curve-large.obj-ffaf9d57b31a17fdfa708b80827b39cc.mesh"]
+
+source_file="res://Assets/OBJ format/curve-large.obj"
+dest_files=["res://.godot/imported/curve-large.obj-ffaf9d57b31a17fdfa708b80827b39cc.mesh", "res://.godot/imported/curve-large.obj-ffaf9d57b31a17fdfa708b80827b39cc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

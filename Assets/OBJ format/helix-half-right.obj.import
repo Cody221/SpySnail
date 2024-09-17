@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dvm6rmir2s8mx"
+path="res://.godot/imported/helix-half-right.obj-e067dd41d53c007e4602045cc8bf9082.mesh"
+
+[deps]
+
+files=["res://.godot/imported/helix-half-right.obj-e067dd41d53c007e4602045cc8bf9082.mesh"]
+
+source_file="res://Assets/OBJ format/helix-half-right.obj"
+dest_files=["res://.godot/imported/helix-half-right.obj-e067dd41d53c007e4602045cc8bf9082.mesh", "res://.godot/imported/helix-half-right.obj-e067dd41d53c007e4602045cc8bf9082.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

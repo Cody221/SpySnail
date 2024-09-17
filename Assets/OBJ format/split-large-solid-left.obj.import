@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://p6jcryv7rfra"
+path="res://.godot/imported/split-large-solid-left.obj-f74c13d5e97f2ff4abd715658bdc299e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/split-large-solid-left.obj-f74c13d5e97f2ff4abd715658bdc299e.mesh"]
+
+source_file="res://Assets/OBJ format/split-large-solid-left.obj"
+dest_files=["res://.godot/imported/split-large-solid-left.obj-f74c13d5e97f2ff4abd715658bdc299e.mesh", "res://.godot/imported/split-large-solid-left.obj-f74c13d5e97f2ff4abd715658bdc299e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

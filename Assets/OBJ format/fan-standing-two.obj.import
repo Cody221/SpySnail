@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://meclmtpt252q"
+path="res://.godot/imported/fan-standing-two.obj-7be04e161ebd327974f482766b15a829.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fan-standing-two.obj-7be04e161ebd327974f482766b15a829.mesh"]
+
+source_file="res://Assets/OBJ format/fan-standing-two.obj"
+dest_files=["res://.godot/imported/fan-standing-two.obj-7be04e161ebd327974f482766b15a829.mesh", "res://.godot/imported/fan-standing-two.obj-7be04e161ebd327974f482766b15a829.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://byn0xj0ikjcso"
+path="res://.godot/imported/end-hole-square.obj-5fc6f97c4994a83657fe4e5f3b2a3324.mesh"
+
+[deps]
+
+files=["res://.godot/imported/end-hole-square.obj-5fc6f97c4994a83657fe4e5f3b2a3324.mesh"]
+
+source_file="res://Assets/OBJ format/end-hole-square.obj"
+dest_files=["res://.godot/imported/end-hole-square.obj-5fc6f97c4994a83657fe4e5f3b2a3324.mesh", "res://.godot/imported/end-hole-square.obj-5fc6f97c4994a83657fe4e5f3b2a3324.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

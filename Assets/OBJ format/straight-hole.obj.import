@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c75s13pkbqi78"
+path="res://.godot/imported/straight-hole.obj-f2f3c285a8e807a7cd00d50e92b37ec8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/straight-hole.obj-f2f3c285a8e807a7cd00d50e92b37ec8.mesh"]
+
+source_file="res://Assets/OBJ format/straight-hole.obj"
+dest_files=["res://.godot/imported/straight-hole.obj-f2f3c285a8e807a7cd00d50e92b37ec8.mesh", "res://.godot/imported/straight-hole.obj-f2f3c285a8e807a7cd00d50e92b37ec8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

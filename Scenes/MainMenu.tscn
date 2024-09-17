@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cinw3m3cputso"]
+
+[ext_resource type="Texture2D" uid="uid://n80hkhn1y5ca" path="res://Assets/Textues/PNG/Green/Double/button_rectangle_border.png" id="1_0r8s1"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("1_0r8s1")

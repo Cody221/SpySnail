@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cr0c08f88dggl"
+path="res://.godot/imported/bump-d.obj-e05f05d9a534ab132cda1effba0bb05e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bump-d.obj-e05f05d9a534ab132cda1effba0bb05e.mesh"]
+
+source_file="res://Assets/OBJ format/bump-d.obj"
+dest_files=["res://.godot/imported/bump-d.obj-e05f05d9a534ab132cda1effba0bb05e.mesh", "res://.godot/imported/bump-d.obj-e05f05d9a534ab132cda1effba0bb05e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
