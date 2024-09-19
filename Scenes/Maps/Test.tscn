@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://s1u3kf2lo3xn" path="res://Scenes/MapBuildingBlocks/bend_2.tscn" id="4_3f51b"]
 [ext_resource type="PackedScene" uid="uid://buv1f14ir3fbe" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/fan_four_full.tscn" id="5_ut6yp"]
 [ext_resource type="PackedScene" uid="uid://6puljv6xchpb" path="res://Scenes/MapBuildingBlocks/funnel_2.tscn" id="7_u7sxk"]
-[ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://goal_square.tscn" id="8_7gory"]
+[ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="8_7gory"]
 [ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="8_fp5tm"]
 
 [node name="Node3D" type="Node3D"]
@@ -40,7 +40,7 @@ fanRange = 5
 fanPower = 5
 
 [node name="funnel2" parent="." instance=ExtResource("7_u7sxk")]
-transform = Transform3D(180, 0, 0, 0, -1.67078, -8.68126, 0, 0.0639219, -226.909, -4.35701, 0, 3.39395)
+transform = Transform3D(180, 0, 0, 0, 1.672, 0, 0, 0, 227.075, -4.35701, -0.413152, 3.39395)
 
 [node name="PortArea" parent="." node_paths=PackedStringArray("otherTP") instance=ExtResource("8_fp5tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.28062, 0.38, 2.15771)

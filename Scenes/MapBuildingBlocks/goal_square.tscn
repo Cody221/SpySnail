@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5dv8jp671c7n" path="res://Assets/GLB format/Textures/colormap.png" id="1_6j7af"]
 [ext_resource type="ArrayMesh" uid="uid://0linqhdyk28h" path="res://Assets/OBJ format/banner-hanging-double-high.obj" id="2_onejd"]
-[ext_resource type="Script" path="res://GoalTrigger.gd" id="3_ee5bm"]
+[ext_resource type="Script" path="res://Scripts/GoalTrigger.gd" id="3_ee5bm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te5s7"]
 resource_name = "colormap"

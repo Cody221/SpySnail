@@ -8,8 +8,6 @@ var drawDirection = Vector3.ZERO
 var start = Vector3.ZERO
 var end = Vector3.ZERO
 
-var jumpCount = 1
-
 @export var jumpForce : int
 #@onready var cam = $YGimbal/XGimbal/Camera3D
 @onready var yGimbal = $YGimbal

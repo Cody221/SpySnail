@@ -5,10 +5,5 @@ extends Area3D
 func _ready():
 	connect("body_entered", _area_body_entered)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _area_body_entered(body):
+func _area_body_entered(_body):
 	GameManager.EndGame()
