@@ -6,7 +6,8 @@ extends Node3D
 var direction
 
 func _ready():
-	DebugLayer.draw.add_vector(self, "direction", 1, 4, Color(0, 1, 0, 0.5))
+	#DebugLayer.draw.add_vector(self, "direction", 1, 4, Color(0, 1, 0, 0.5))
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):

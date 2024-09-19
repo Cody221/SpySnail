@@ -3,7 +3,8 @@ extends RigidBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var direction = Vector2.ZERO
-var drawDirection = Vector3.ZERO #essentially a copy of direction just used to be compatible with the draw.add_vector and be oriented the correct way
+#essentially a copy of direction just used to be compatible with the draw.add_vector and be oriented the correct way
+var drawDirection = Vector3.ZERO 
 var start = Vector3.ZERO
 var end = Vector3.ZERO
 

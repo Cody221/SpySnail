@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="SpySlug"
-run/main_scene="res://Scenes/map2.tscn"
+run/main_scene="res://Scenes/Maps/Test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DebugLayer="*res://Scenes/Debug/DebugLayer.tscn"
+GameManager="*res://Scripts/GameManager.gd"
 
 [input]
 
