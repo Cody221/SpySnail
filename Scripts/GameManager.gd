@@ -16,6 +16,7 @@ func _input(event):
 
 func EndGame():
 	#probably want to display an end of game summary
+	stopwatch.isPaused = true
 	add_child(summaryWindow)
 	# X / 3 stars; finished in X time; etc. 
 

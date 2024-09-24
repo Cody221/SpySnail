@@ -10,4 +10,5 @@ func _init(time = 0.0, paused = false):
 
 # needs to be called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	currentTime += delta
+	if !isPaused:
+		currentTime += delta

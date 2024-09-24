@@ -1,15 +1,11 @@
 extends Window
-
+#$YGimbal/XGimbal/Camera3D
+@onready var timeLabel = $MarginContainer/HBoxContainer/Label
 
 func _notification(what):
+	#handles close request 
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		get_tree().quit()
+		get_tree().quit() #closes whole program >> need to change this shit
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	timeLabel.text = str(GameManager.stopwatch.currentTime)

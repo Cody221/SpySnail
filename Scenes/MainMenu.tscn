@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cinw3m3cputso"]
+[gd_scene load_steps=7 format=3 uid="uid://cinw3m3cputso"]
 
 [ext_resource type="Texture2D" uid="uid://biegtxycnai42" path="res://button_rectangle_border.png" id="1_lrh8w"]
-[ext_resource type="Texture2D" uid="uid://lln3yj0lj1rk" path="res://Assets/Textues/PNG/Green/Double/button_rectangle_depth_line.png" id="2_jive1"]
-[ext_resource type="Texture2D" uid="uid://bux5jtxebh438" path="res://Assets/Textues/PNG/Green/Double/button_rectangle_gradient.png" id="3_qr06g"]
+[ext_resource type="Texture2D" uid="uid://dlre30t17lujj" path="res://Assets/Textues/PlayButton_Default.png" id="2_lo6kk"]
+[ext_resource type="Texture2D" uid="uid://bchdrmrnb80ew" path="res://Assets/Textues/PlayButton_Pressed.png" id="3_08i82"]
 [ext_resource type="Script" path="res://Scenes/PlayButton.gd" id="4_wmn65"]
+[ext_resource type="Texture2D" uid="uid://t3j76udhdb1l" path="res://Assets/Textues/MakerButton_Default.png" id="5_xp4gh"]
+[ext_resource type="Texture2D" uid="uid://eccuujvuxa75" path="res://Assets/Textues/MakerButton_Pressed.png" id="6_niv80"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -20,16 +22,24 @@ theme_override_constants/margin_bottom = 80
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("1_lrh8w")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="PlayButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="CenterContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_jive1")
-texture_pressed = ExtResource("3_qr06g")
+texture_normal = ExtResource("2_lo6kk")
+texture_pressed = ExtResource("3_08i82")
 script = ExtResource("4_wmn65")
+scenePath = "res://Scenes/Maps/Test.tscn"
+
+[node name="MapMakerButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_xp4gh")
+texture_pressed = ExtResource("6_niv80")
+script = ExtResource("4_wmn65")
+scenePath = "res://Scenes/Maps/MapMaker.tscn"

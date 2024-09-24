@@ -4,7 +4,7 @@
 
 [node name="SummaryWindow" type="Window"]
 title = "Summary"
-position = Vector2i(10, 36)
+initial_position = 1
 size = Vector2i(150, 200)
 transient = true
 exclusive = true
@@ -16,5 +16,23 @@ script = ExtResource("1_duv1v")
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Joe mama"
+
+[node name="RestartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return
+"
