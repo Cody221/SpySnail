@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cinw3m3cputso"]
+[gd_scene load_steps=5 format=3 uid="uid://cinw3m3cputso"]
 
-[ext_resource type="Texture2D" uid="uid://n80hkhn1y5ca" path="res://Assets/Textues/PNG/Green/Double/button_rectangle_border.png" id="1_0r8s1"]
+[ext_resource type="Texture2D" uid="uid://biegtxycnai42" path="res://button_rectangle_border.png" id="1_lrh8w"]
+[ext_resource type="Texture2D" uid="uid://lln3yj0lj1rk" path="res://Assets/Textues/PNG/Green/Double/button_rectangle_depth_line.png" id="2_jive1"]
+[ext_resource type="Texture2D" uid="uid://bux5jtxebh438" path="res://Assets/Textues/PNG/Green/Double/button_rectangle_gradient.png" id="3_qr06g"]
+[ext_resource type="Script" path="res://Scenes/PlayButton.gd" id="4_wmn65"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -15,19 +18,18 @@ theme_override_constants/margin_bottom = 80
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-texture = ExtResource("1_0r8s1")
+texture = ExtResource("1_lrh8w")
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
-size_flags_vertical = 0
-texture = ExtResource("1_0r8s1")
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="CenterContainer"]
 layout_mode = 2
+texture_normal = ExtResource("2_jive1")
+texture_pressed = ExtResource("3_qr06g")
+script = ExtResource("4_wmn65")
