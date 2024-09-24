@@ -25,7 +25,12 @@ func Reset():
 	stopwatch.currentTime = 0
 	remove_child(summaryWindow)
 	get_tree().reload_current_scene()
+	stopwatch.isPaused = false
 
 func EndLevel():
 	Reset()
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	LoadScene("res://Scenes/MainMenu.tscn")
+
+func LoadScene(scene : String): 
+	get_tree().change_scene_to_file(scene)
+	stopwatch.currentTime = 0.0

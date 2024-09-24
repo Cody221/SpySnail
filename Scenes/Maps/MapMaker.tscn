@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://c1b2g12r6dhbd"]
+[gd_scene load_steps=5 format=3 uid="uid://c1b2g12r6dhbd"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/CamControl.gd" id="1_bcyp7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5di1f"]
+sky_top_color = Color(0.613447, 0.374797, 0.343528, 1)
+sky_horizon_color = Color(0.854912, 0.582856, 0.422469, 1)
+sky_curve = 0.270375
+
+[sub_resource type="Sky" id="Sky_232wr"]
+sky_material = SubResource("ProceduralSkyMaterial_5di1f")
+
+[sub_resource type="Environment" id="Environment_s1fko"]
+background_mode = 2
+sky = SubResource("Sky_232wr")
 
 [node name="MapMaker" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+environment = SubResource("Environment_s1fko")
+script = ExtResource("1_bcyp7")
