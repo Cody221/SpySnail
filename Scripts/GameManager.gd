@@ -14,7 +14,7 @@ func _input(event):
 		if event.pressed and event.keycode == KEY_ESCAPE:
 			Reset()
 
-func EndGame():
+func ShowEndScreen():
 	#probably want to display an end of game summary
 	stopwatch.isPaused = true
 	add_child(summaryWindow)
@@ -25,3 +25,7 @@ func Reset():
 	stopwatch.currentTime = 0
 	remove_child(summaryWindow)
 	get_tree().reload_current_scene()
+
+func EndLevel():
+	Reset()
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
