@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnvkp4tpujyrb"]
+
+[ext_resource type="PackedScene" uid="uid://fni88ahebbs6" path="res://Scenes/MapBuildingBlocks/ramp_start_d.tscn" id="1_xt8xu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xtgn"]
+sky_top_color = Color(0.365611, 0.451618, 0.593883, 1)
+sky_horizon_color = Color(0.721272, 0.646584, 0.495206, 1)
+sky_curve = 0.0445952
+ground_curve = 0.005
+
+[sub_resource type="Sky" id="Sky_7v6wr"]
+sky_material = SubResource("ProceduralSkyMaterial_8xtgn")
+
+[sub_resource type="Environment" id="Environment_uj2uo"]
+background_mode = 2
+sky = SubResource("Sky_7v6wr")
+
+[node name="PlayTest" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Ramp-start-d" parent="Map" instance=ExtResource("1_xt8xu")]
+skeleton = NodePath("../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uj2uo")

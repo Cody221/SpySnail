@@ -1,6 +1,7 @@
 extends Camera3D
 
 @export var mouseSens = 0.25
+@export var camSpeed = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,20 +24,22 @@ func _unhandled_input(event):
 	rotation_degrees.x = clamp(rotation_degrees.x, -90, 90)
 
 func handle_movement(delta):
-	if Input.is_action_pressed("Jump"):
-		position += Vector3.UP * delta
-	
+	if Input.is_action_pressed("Up"):
+		position += Vector3.UP * delta * camSpeed
+	if Input.is_action_pressed("Down"):
+		position += -Vector3.UP * delta * camSpeed
+		
 	if Input.is_action_pressed("Forward"):
 	#needs to be reversed to go forward 
-		position += -global_basis.z * delta
+		position += -global_basis.z * delta * camSpeed
 	
 	if Input.is_action_pressed("Back"):
-		#basis.z points backwards 
-		position += global_basis.z * delta
+		#basis.z points backwards  
+		position += global_basis.z * delta * camSpeed
 	
 	if Input.is_action_pressed("Left"):
 		#needs to be reversed to go left
-		position += -global_basis.x * delta
+		position += -global_basis.x * delta * camSpeed
 	
 	if Input.is_action_pressed("Right"):
-		position += global_basis.x * delta
+		position += global_basis.x * delta * camSpeed

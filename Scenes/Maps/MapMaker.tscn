@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1b2g12r6dhbd"]
 
-[ext_resource type="Script" path="res://Scenes/Maps/CamControl.gd" id="1_bcyp7"]
+[ext_resource type="Script" path="res://Scripts/CamControl.gd" id="1_bcyp7"]
 [ext_resource type="PackedScene" uid="uid://6puljv6xchpb" path="res://Scenes/MapBuildingBlocks/funnel_2.tscn" id="2_76swn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5di1f"]
@@ -17,12 +17,12 @@ sky = SubResource("Sky_232wr")
 
 [node name="MapMaker" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.442289, 0.896873, 0, -0.896873, 0.442289, 0, 3.42978, 0)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 environment = SubResource("Environment_s1fko")
 script = ExtResource("1_bcyp7")
 
 [node name="funnel2" parent="." instance=ExtResource("2_76swn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02631, 0, -3.14899)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.442289, 0.896873, 0, -0.896873, 0.442289, 0, 3.42978, 0)
