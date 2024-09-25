@@ -1,7 +1,7 @@
 extends Node
 
 var stopwatch : Stopwatch
-var summaryWindow = preload("res://SummaryWindow.tscn").instantiate()
+var summaryWindow = preload("res://Scenes/Menus/SummaryWindow.tscn").instantiate()
 
 func _ready():
 	stopwatch = Stopwatch.new()
@@ -29,7 +29,7 @@ func Reset():
 
 func EndLevel():
 	Reset()
-	LoadScene("res://Scenes/MainMenu.tscn")
+	LoadScene("res://Scenes/Menus/MainMenu.tscn")
 
 func LoadScene(scene : String): 
 	get_tree().change_scene_to_file(scene)
