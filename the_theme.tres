@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://iv1up66heb63"]
+
+[ext_resource type="StyleBox" uid="uid://bab8fq12pghl" path="res://label_style_box_texture.tres" id="1_5i1kr"]
+[ext_resource type="FontFile" uid="uid://oflpwrafjl7y" path="res://Assets/Font/Kenney Future Narrow.ttf" id="2_1ljie"]
+[ext_resource type="StyleBox" uid="uid://c83365uyrnkuu" path="res://pressed_button_style_box_texture.tres" id="2_4hldh"]
+
+[resource]
+default_font = ExtResource("2_1ljie")
+Button/colors/font_color = Color(0.121569, 0.709804, 0.615686, 1)
+Button/colors/font_focus_color = Color(0.121569, 0.709804, 0.615686, 1)
+Button/colors/font_hover_color = Color(0.810357, 0.54992, 0.283753, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.810357, 0.54992, 0.283753, 1)
+Button/constants/outline_size = 2
+Button/styles/hover = ExtResource("1_5i1kr")
+Button/styles/normal = ExtResource("1_5i1kr")
+Button/styles/pressed = ExtResource("2_4hldh")
+Label/colors/font_color = Color(0.123462, 0.708887, 0.617001, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 2
+Label/styles/normal = ExtResource("1_5i1kr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnvkp4tpujyrb"]
+[gd_scene load_steps=18 format=3 uid="uid://cnvkp4tpujyrb"]
 
 [ext_resource type="PackedScene" uid="uid://fni88ahebbs6" path="res://Scenes/MapBuildingBlocks/ramp_start_d.tscn" id="1_xt8xu"]
 [ext_resource type="PackedScene" uid="uid://dr1fjso7pmyd8" path="res://Scenes/MapBuildingBlocks/ramp_d_long.tscn" id="2_6mtxk"]
@@ -6,7 +6,85 @@
 [ext_resource type="PackedScene" uid="uid://6puljv6xchpb" path="res://Scenes/MapBuildingBlocks/funnel_2.tscn" id="3_eki3y"]
 [ext_resource type="PackedScene" uid="uid://kyyphb0wppj1" path="res://Scenes/MapBuildingBlocks/ramp_start_c.tscn" id="4_knjcy"]
 [ext_resource type="PackedScene" uid="uid://b7n38isa4hm67" path="res://Scenes/MapBuildingBlocks/slant_d.tscn" id="5_mmjg5"]
+[ext_resource type="ArrayMesh" uid="uid://drjl65tkrxkae" path="res://Assets/OBJ format/support-two-top.obj" id="7_6gxl1"]
 [ext_resource type="PackedScene" uid="uid://m2pdr5v00uwe" path="res://Scenes/Menus/LevelUI.tscn" id="7_mdw4c"]
+[ext_resource type="ArrayMesh" uid="uid://blv1vwpjtajwc" path="res://Assets/OBJ format/fan-simple-two.obj" id="8_axwuk"]
+[ext_resource type="FontFile" uid="uid://df6ewyacp4jgt" path="res://Assets/Font/Kenney Future.ttf" id="9_cmh0k"]
+
+[sub_resource type="Animation" id="Animation_07dws"]
+resource_name = "AnimatedSign"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0384387, 0), Vector3(0, 0.152, 0), Vector3(0, 0.076, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fan-simple-two:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0158306, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159), Vector3(0, 6.28319, -3.14159), Vector3(0, 12.5664, -3.14159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fan-simple-two2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159), Vector3(0, 6.28319, -3.14159), Vector3(0, 12.5664, -3.14159)]
+}
+
+[sub_resource type="Animation" id="Animation_sydl7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Fan-simple-two:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Fan-simple-two2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sej5n"]
+_data = {
+"AnimatedSign": SubResource("Animation_07dws"),
+"RESET": SubResource("Animation_sydl7")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_v4sf0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xtgn"]
 sky_top_color = Color(0.721569, 0.647059, 0.494118, 1)
@@ -23,6 +101,8 @@ background_mode = 2
 sky = SubResource("Sky_7v6wr")
 
 [node name="PlayTest" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("7_mdw4c")]
 
 [node name="Map" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01887, 2.28411)
@@ -44,10 +124,43 @@ skeleton = NodePath("../..")
 [node name="Slant-d" parent="Map" instance=ExtResource("5_mmjg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.56515, -5.37546)
 
+[node name="Sign" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -1)
+
+[node name="Sign" type="MeshInstance3D" parent="Map/Sign"]
+mesh = ExtResource("7_6gxl1")
+
+[node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign/Sign"]
+transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -6.77626e-21, 3.49691e-07, 5.28019e-14, 1, -0.364637, 0.240517, 0.00101435)
+mesh = ExtResource("8_axwuk")
+
+[node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign/Sign"]
+transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 0.343303, 0.245285, 3.06368e-05)
+mesh = ExtResource("8_axwuk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Sign/Sign"]
+libraries = {
+"": SubResource("AnimationLibrary_sej5n")
+}
+autoplay = "AnimatedSign"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Sign/Sign"]
+transform = Transform3D(2.45078, 0, 0, 0, 1, 0, 0, 0, 0.30682, 0, 1, 0)
+mesh = SubResource("BoxMesh_v4sf0")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Map/Sign/Sign/MeshInstance3D"]
+transform = Transform3D(0.323162, 0, 0, 0, 1.4157, 0, 0, 0, 7.17033, 0, 0.0788271, 0.530207)
+double_sided = false
+text = "Use right click to look around
+
+press and hold left click
+ to launch your marble"
+font = ExtResource("9_cmh0k")
+font_size = 28
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uj2uo")
 
 [node name="PlayerBall" parent="." instance=ExtResource("2_mnnjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94605, 3.28487)
-
-[node name="UI" parent="." instance=ExtResource("7_mdw4c")]

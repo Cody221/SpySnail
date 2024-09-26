@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpggtco28l7wq"]
+
+[ext_resource type="ArrayMesh" uid="uid://drjl65tkrxkae" path="res://Assets/OBJ format/support-two-top.obj" id="1_fkvo3"]
+[ext_resource type="ArrayMesh" uid="uid://blv1vwpjtajwc" path="res://Assets/OBJ format/fan-simple-two.obj" id="2_yrjc8"]
+[ext_resource type="FontFile" uid="uid://df6ewyacp4jgt" path="res://Assets/Font/Kenney Future.ttf" id="3_tnjuc"]
+
+[sub_resource type="Animation" id="Animation_07dws"]
+resource_name = "AnimatedSign"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0384387, 0), Vector3(0, 0.152, 0), Vector3(0, 0.076, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fan-simple-two:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0158306, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159), Vector3(0, 6.28319, -3.14159), Vector3(0, 12.5664, -3.14159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fan-simple-two2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159), Vector3(0, 6.28319, -3.14159), Vector3(0, 12.5664, -3.14159)]
+}
+
+[sub_resource type="Animation" id="Animation_sydl7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Fan-simple-two:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Fan-simple-two2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -3.14159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sej5n"]
+_data = {
+"AnimatedSign": SubResource("Animation_07dws"),
+"RESET": SubResource("Animation_sydl7")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_v4sf0"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sign" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fkvo3")
+
+[node name="Fan-simple-two" type="MeshInstance3D" parent="Sign"]
+transform = Transform3D(-1, -8.74228e-08, 3.49691e-07, 8.74228e-08, -1, 0, 3.49691e-07, 3.0571e-14, 1, -0.364637, 0.240517, 0.00101435)
+mesh = ExtResource("2_yrjc8")
+
+[node name="Fan-simple-two2" type="MeshInstance3D" parent="Sign"]
+transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 0.343303, 0.245285, 3.06368e-05)
+mesh = ExtResource("2_yrjc8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sign"]
+libraries = {
+"": SubResource("AnimationLibrary_sej5n")
+}
+autoplay = "AnimatedSign"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sign"]
+transform = Transform3D(2.45078, 0, 0, 0, 1, 0, 0, 0, 0.30682, 0, 1, 0)
+mesh = SubResource("BoxMesh_v4sf0")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Sign/MeshInstance3D"]
+transform = Transform3D(0.408033, 0, 0, 0, 1, 0, 0, 0, 3.25924, 0, 0.0945894, 0.530207)
+text = "BILLBOARD!!"
+font = ExtResource("3_tnjuc")

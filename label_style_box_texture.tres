@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bab8fq12pghl"]
+
+[ext_resource type="Texture2D" uid="uid://g3py4qyhk23g" path="res://Assets/Textues/PNG/Extra/Double/button_rectangle_line.png" id="1_mtsuj"]
+
+[resource]
+texture = ExtResource("1_mtsuj")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
