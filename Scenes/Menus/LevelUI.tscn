@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://m2pdr5v00uwe"]
+
+[ext_resource type="Script" path="res://Scripts/LevelUIController.gd" id="1_cvxgr"]
+[ext_resource type="FontFile" uid="uid://oflpwrafjl7y" path="res://Assets/Font/Kenney Future Narrow.ttf" id="1_jnd44"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0e3bb"]
+font = ExtResource("1_jnd44")
+
+[node name="UI" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cvxgr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Time: 
+"
+label_settings = SubResource("LabelSettings_0e3bb")
+horizontal_alignment = 2

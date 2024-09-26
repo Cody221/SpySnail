@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnvkp4tpujyrb"]
+[gd_scene load_steps=11 format=3 uid="uid://cnvkp4tpujyrb"]
 
 [ext_resource type="PackedScene" uid="uid://fni88ahebbs6" path="res://Scenes/MapBuildingBlocks/ramp_start_d.tscn" id="1_xt8xu"]
+[ext_resource type="PackedScene" uid="uid://dr1fjso7pmyd8" path="res://Scenes/MapBuildingBlocks/ramp_d_long.tscn" id="2_6mtxk"]
+[ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://Scenes/PlayerBall.tscn" id="2_mnnjt"]
+[ext_resource type="PackedScene" uid="uid://6puljv6xchpb" path="res://Scenes/MapBuildingBlocks/funnel_2.tscn" id="3_eki3y"]
+[ext_resource type="PackedScene" uid="uid://kyyphb0wppj1" path="res://Scenes/MapBuildingBlocks/ramp_start_c.tscn" id="4_knjcy"]
+[ext_resource type="PackedScene" uid="uid://b7n38isa4hm67" path="res://Scenes/MapBuildingBlocks/slant_d.tscn" id="5_mmjg5"]
+[ext_resource type="PackedScene" uid="uid://m2pdr5v00uwe" path="res://Scenes/Menus/LevelUI.tscn" id="7_mdw4c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xtgn"]
-sky_top_color = Color(0.365611, 0.451618, 0.593883, 1)
-sky_horizon_color = Color(0.721272, 0.646584, 0.495206, 1)
-sky_curve = 0.0445952
+sky_top_color = Color(0.721569, 0.647059, 0.494118, 1)
+sky_horizon_color = Color(0.62083, 0.644479, 0.79567, 1)
+sky_curve = 0.178381
+ground_bottom_color = Color(0.228724, 0.157851, 0.0964701, 1)
 ground_curve = 0.005
 
 [sub_resource type="Sky" id="Sky_7v6wr"]
@@ -18,9 +25,29 @@ sky = SubResource("Sky_7v6wr")
 [node name="PlayTest" type="Node3D"]
 
 [node name="Map" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01887, 2.28411)
 
 [node name="Ramp-start-d" parent="Map" instance=ExtResource("1_xt8xu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500557, -0.00357902)
 skeleton = NodePath("../..")
+
+[node name="Ramp-long-d" parent="Map" instance=ExtResource("2_6mtxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -1.50275)
+
+[node name="funnel2" parent="Map" instance=ExtResource("3_eki3y")]
+transform = Transform3D(0.999999, -0.000158562, -0.00171351, 0.00016354, 0.999996, 0.0029159, 0.00171304, -0.00291618, 0.999994, 0, 1.25197, 0.996706)
+
+[node name="Ramp-start-c" parent="Map" instance=ExtResource("4_knjcy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.997635, -2.99495)
+skeleton = NodePath("../..")
+
+[node name="Slant-d" parent="Map" instance=ExtResource("5_mmjg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.56515, -5.37546)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uj2uo")
+
+[node name="PlayerBall" parent="." instance=ExtResource("2_mnnjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94605, 3.28487)
+
+[node name="UI" parent="." instance=ExtResource("7_mdw4c")]
