@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cinw3m3cputso"]
+[gd_scene load_steps=4 format=3 uid="uid://cinw3m3cputso"]
 
-[ext_resource type="Texture2D" uid="uid://biegtxycnai42" path="res://Assets/Textues/button_rectangle_border.png" id="1_lrh8w"]
-[ext_resource type="Texture2D" uid="uid://dlre30t17lujj" path="res://Assets/Textues/PlayButton_Default.png" id="2_lo6kk"]
-[ext_resource type="Texture2D" uid="uid://bchdrmrnb80ew" path="res://Assets/Textues/PlayButton_Pressed.png" id="3_08i82"]
+[ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_x54d6"]
+[ext_resource type="Script" path="res://Scripts/MenuChangeButton.gd" id="2_g4eje"]
 [ext_resource type="Script" path="res://Scripts/SceneChangeButton.gd" id="4_wmn65"]
-[ext_resource type="Texture2D" uid="uid://t3j76udhdb1l" path="res://Assets/Textues/MakerButton_Default.png" id="5_xp4gh"]
-[ext_resource type="Texture2D" uid="uid://eccuujvuxa75" path="res://Assets/Textues/MakerButton_Pressed.png" id="6_niv80"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -25,21 +22,58 @@ alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-texture = ExtResource("1_lrh8w")
+theme = ExtResource("1_x54d6")
+theme_type_variation = &"HeaderLarge"
+text = " Marble Game"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="HBoxContainer/VBoxContainer" node_paths=PackedStringArray("menuToHide", "menuToShow")]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-texture_normal = ExtResource("2_lo6kk")
-texture_pressed = ExtResource("3_08i82")
+theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 35
+text = "Play"
+script = ExtResource("2_g4eje")
+menuToHide = NodePath("../..")
+menuToShow = NodePath("../../../LevelGrid")
+
+[node name="MapMakerButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 35
+text = "Create"
+script = ExtResource("4_wmn65")
+scenePath = "res://Scenes/Maps/MapMaker.tscn"
+
+[node name="LevelGrid" type="GridContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_x54d6")
+
+[node name="TestButton" type="Button" parent="LevelGrid"]
+layout_mode = 2
+theme = ExtResource("1_x54d6")
+text = "Test"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/Test.tscn"
 
-[node name="MapMakerButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="TutorialButton" type="Button" parent="LevelGrid"]
 layout_mode = 2
-texture_normal = ExtResource("5_xp4gh")
-texture_pressed = ExtResource("6_niv80")
+theme = ExtResource("1_x54d6")
+text = "tutorial"
 script = ExtResource("4_wmn65")
-scenePath = "res://Scenes/Maps/MapMaker.tscn"
+scenePath = "res://Scenes/Maps/PlayTest.tscn"
+
+[node name="ReturnButton" type="Button" parent="LevelGrid" node_paths=PackedStringArray("menuToHide", "menuToShow")]
+layout_mode = 2
+theme = ExtResource("1_x54d6")
+text = "Return"
+script = ExtResource("2_g4eje")
+menuToHide = NodePath("..")
+menuToShow = NodePath("../../HBoxContainer")

@@ -18,6 +18,10 @@ func _ready():
 	max_contacts_reported = 1
 	pass
 
+func _process(_delta):
+	if position.y <= -50:
+		GameManager.Reset()
+
 func _physics_process(delta):
 	if(Input.is_action_just_pressed("LeftMouse")):
 		start = get_viewport().get_mouse_position()

@@ -2,7 +2,6 @@ extends Node3D
 
 @export var fanRange: int
 @export var fanPower : int
-
 var direction
 
 func _ready():
