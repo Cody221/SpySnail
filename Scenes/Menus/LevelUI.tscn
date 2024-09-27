@@ -26,3 +26,33 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("1_ka0o4")
 text = "Time:  "
+
+[node name="SummaryWindow" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SummaryWindow"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SummaryWindow/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ka0o4")
+text = "Joe mama"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="RestartButton" type="Button" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ka0o4")
+text = "Restart"
+
+[node name="ReturnButton" type="Button" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ka0o4")
+text = "Return
+"
