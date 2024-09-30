@@ -59,6 +59,7 @@ theme = ExtResource("1_x54d6")
 [node name="TestButton" type="Button" parent="LevelGrid"]
 layout_mode = 2
 theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 20
 text = "Test"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/Test.tscn"
@@ -66,6 +67,7 @@ scenePath = "res://Scenes/Maps/Test.tscn"
 [node name="TutorialButton" type="Button" parent="LevelGrid"]
 layout_mode = 2
 theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 20
 text = "tutorial"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/PlayTest.tscn"
@@ -73,6 +75,7 @@ scenePath = "res://Scenes/Maps/PlayTest.tscn"
 [node name="ReturnButton" type="Button" parent="LevelGrid" node_paths=PackedStringArray("menuToHide", "menuToShow")]
 layout_mode = 2
 theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 20
 text = "Return"
 script = ExtResource("2_g4eje")
 menuToHide = NodePath("..")

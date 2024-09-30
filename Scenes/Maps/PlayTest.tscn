@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnvkp4tpujyrb"]
+[gd_scene load_steps=27 format=3 uid="uid://cnvkp4tpujyrb"]
 
 [ext_resource type="PackedScene" uid="uid://fni88ahebbs6" path="res://Scenes/MapBuildingBlocks/ramp_start_d.tscn" id="1_xt8xu"]
 [ext_resource type="PackedScene" uid="uid://dr1fjso7pmyd8" path="res://Scenes/MapBuildingBlocks/ramp_d_long.tscn" id="2_6mtxk"]
@@ -11,7 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://dqyi623tyr6bf" path="res://Scenes/MapBuildingBlocks/straight_wide_long.tscn" id="9_8nisi"]
 [ext_resource type="FontFile" uid="uid://df6ewyacp4jgt" path="res://Assets/Font/Kenney Future.ttf" id="9_cmh0k"]
 [ext_resource type="PackedScene" uid="uid://dev08qkmbx7ac" path="res://Scenes/MapBuildingBlocks/straight.tscn" id="10_rqxui"]
+[ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://Scenes/MapBuildingBlocks/helix_left.tscn" id="11_qthph"]
 [ext_resource type="PackedScene" uid="uid://buv1f14ir3fbe" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/fan_four_full.tscn" id="11_x1r5m"]
+[ext_resource type="PackedScene" uid="uid://dvyrqxbnx4mx6" path="res://Scenes/MapBuildingBlocks/curve.tscn" id="12_didi2"]
+[ext_resource type="PackedScene" uid="uid://cap72od1fx3oq" path="res://Scenes/MapBuildingBlocks/split_double_sides_2.tscn" id="13_irnwm"]
+[ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="14_dehbs"]
+[ext_resource type="PackedScene" uid="uid://8ri3otmrvco0" path="res://Scenes/MapBuildingBlocks/split_left.tscn" id="15_8xkx3"]
+[ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="16_p4i8o"]
+[ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="18_1gtw2"]
 
 [sub_resource type="Animation" id="Animation_07dws"]
 resource_name = "AnimatedSign"
@@ -110,13 +117,13 @@ sky = SubResource("Sky_7v6wr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.50006, 2.28411)
 
 [node name="Sign" type="Node3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -1)
+transform = Transform3D(0.960391, 0, -0.278656, 0, 1, 0, 0.278656, 0, 0.960391, 2, 1, -1)
 
 [node name="Sign" type="MeshInstance3D" parent="Map/Sign"]
 mesh = ExtResource("7_6gxl1")
 
 [node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign/Sign"]
-transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -3.38813e-19, 3.49691e-07, 5.28015e-14, 1, -0.364637, 0.240517, 0.00101435)
+transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -5.38713e-19, 3.49691e-07, 5.28013e-14, 1, -0.364637, 0.240517, 0.00101435)
 mesh = ExtResource("8_axwuk")
 
 [node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign/Sign"]
@@ -146,7 +153,7 @@ font = ExtResource("9_cmh0k")
 font_size = 28
 
 [node name="Sign2" type="Node3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38292, -0.477791, -12.8414)
+transform = Transform3D(0.963411, 0, -0.268029, 0, 1, 0, 0.268029, 0, 0.963411, 2.38292, -0.477791, -12.8414)
 
 [node name="Sign" type="MeshInstance3D" parent="Map/Sign2"]
 mesh = ExtResource("7_6gxl1")
@@ -180,6 +187,106 @@ falling will reset you
 font = ExtResource("9_cmh0k")
 font_size = 28
 
+[node name="Sign3" type="Node3D" parent="Map"]
+transform = Transform3D(0.776893, 0, 0.629632, 0, 1, 0, -0.629632, 0, 0.776893, -1.93338, 0.374595, -18.5237)
+
+[node name="Sign" type="MeshInstance3D" parent="Map/Sign3"]
+mesh = ExtResource("7_6gxl1")
+
+[node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign3/Sign"]
+transform = Transform3D(-1, 2.53518e-06, 2.89599e-05, -2.53518e-06, -1, -1.38778e-16, 2.89599e-05, -7.34187e-11, 1, -0.364637, 0.240517, 0.00101435)
+mesh = ExtResource("8_axwuk")
+
+[node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign3/Sign"]
+transform = Transform3D(-1, 2.53518e-06, 0, -2.53518e-06, -1, 0, 0, 0, 1, 0.343303, 0.245285, 3.06368e-05)
+mesh = ExtResource("8_axwuk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Sign3/Sign"]
+libraries = {
+"": SubResource("AnimationLibrary_sej5n")
+}
+autoplay = "AnimatedSign"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Sign3/Sign"]
+transform = Transform3D(2.45078, 0, 0, 0, 1, 0, 0, 0, 0.30682, 0, 1.06436, 0)
+mesh = SubResource("BoxMesh_v4sf0")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Map/Sign3/Sign/MeshInstance3D"]
+transform = Transform3D(0.323162, 0, 0, 0, 1.4157, 0, 0, 0, 7.17033, 0, 0.0320101, 0.530205)
+double_sided = false
+text = " fans will push you around"
+font = ExtResource("9_cmh0k")
+font_size = 28
+
+[node name="Sign4" type="Node3D" parent="Map"]
+transform = Transform3D(0.58746, 0, 0.809253, 0, 1, 0, -0.809253, 0, 0.58746, -17.4474, -3.62703, -32.3485)
+
+[node name="Sign" type="MeshInstance3D" parent="Map/Sign4"]
+mesh = ExtResource("7_6gxl1")
+
+[node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign4/Sign"]
+transform = Transform3D(-1, 2.53518e-06, 2.89599e-05, -2.53518e-06, -1, -1.38778e-16, 2.89599e-05, -7.34187e-11, 1, -0.364637, 0.240517, 0.00101435)
+mesh = ExtResource("8_axwuk")
+
+[node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign4/Sign"]
+transform = Transform3D(-1, 2.53518e-06, 0, -2.53518e-06, -1, 0, 0, 0, 1, 0.343303, 0.245285, 3.06368e-05)
+mesh = ExtResource("8_axwuk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Sign4/Sign"]
+libraries = {
+"": SubResource("AnimationLibrary_sej5n")
+}
+autoplay = "AnimatedSign"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Sign4/Sign"]
+transform = Transform3D(2.45078, 0, 0, 0, 1, 0, 0, 0, 0.30682, 0, 1.06436, 0)
+mesh = SubResource("BoxMesh_v4sf0")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Map/Sign4/Sign/MeshInstance3D"]
+transform = Transform3D(0.323162, 0, 2.98023e-08, 0, 1.4157, 0, 5.96046e-08, 0, 7.17033, 9.53674e-07, 0.0320101, 0.530197)
+double_sided = false
+text = "teleporters allow you
+ to warp around the level"
+font = ExtResource("9_cmh0k")
+font_size = 28
+
+[node name="Sign5" type="Node3D" parent="Map"]
+transform = Transform3D(0.776893, 0, 0.629632, 0, 1, 0, -0.629632, 0, 0.776893, -1.751, 0.372966, -40.3485)
+
+[node name="Sign" type="MeshInstance3D" parent="Map/Sign5"]
+mesh = ExtResource("7_6gxl1")
+
+[node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign5/Sign"]
+transform = Transform3D(-1, 2.53518e-06, 2.89599e-05, -2.53518e-06, -1, -1.38778e-16, 2.89599e-05, -7.34187e-11, 1, -0.364637, 0.240517, 0.00101435)
+mesh = ExtResource("8_axwuk")
+
+[node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign5/Sign"]
+transform = Transform3D(-1, 2.53518e-06, 0, -2.53518e-06, -1, 0, 0, 0, 1, 0.343303, 0.245285, 3.06368e-05)
+mesh = ExtResource("8_axwuk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Sign5/Sign"]
+libraries = {
+"": SubResource("AnimationLibrary_sej5n")
+}
+autoplay = "AnimatedSign"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Sign5/Sign"]
+transform = Transform3D(2.45078, 0, 0, 0, 1, 0, 0, 0, 0.30682, 0, 1.06436, 0)
+mesh = SubResource("BoxMesh_v4sf0")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Map/Sign5/Sign/MeshInstance3D"]
+transform = Transform3D(0.323162, 0, 2.98023e-08, 0, 1.4157, 0, 5.96046e-08, 0, 7.17033, 9.53674e-07, 0.0320101, 0.530197)
+double_sided = false
+text = " banners represent
+ the goal square
+
+reaching it will end the level"
+font = ExtResource("9_cmh0k")
+font_size = 28
+
 [node name="Ramp-start-d" parent="Map" instance=ExtResource("1_xt8xu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500557, -0.00357902)
 skeleton = NodePath("../..")
@@ -189,6 +296,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -1.50275)
 
 [node name="funnel2" parent="Map" instance=ExtResource("3_eki3y")]
 transform = Transform3D(0.999999, -0.000158562, -0.00171351, 0.00016354, 0.999996, 0.0029159, 0.00171304, -0.00291618, 0.999994, 0, 1.25197, 0.996706)
+
+[node name="funnel4" parent="Map" instance=ExtResource("3_eki3y")]
+transform = Transform3D(0.001713, -0.00291618, 0.999994, 0.00016354, 0.999996, 0.0029159, -0.999999, 0.000158563, 0.00171347, -12.9774, -1.80762, -21.7219)
 
 [node name="Ramp-start-c" parent="Map" instance=ExtResource("4_knjcy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.997635, -2.99495)
@@ -226,10 +336,104 @@ transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.4
 [node name="Straight6" parent="Map" instance=ExtResource("10_rqxui")]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.443425, -20.7031)
 
+[node name="Straight7" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.443425, -21.7031)
+
+[node name="Straight8" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.443425, -22.7031)
+
+[node name="Straight9" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.443425, -23.7031)
+
+[node name="Straight10" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.443425, -24.7031)
+
+[node name="helix-left2" parent="Map" instance=ExtResource("11_qthph")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.49707, -1.80912, -25.2089)
+
+[node name="Curve" parent="Map" instance=ExtResource("12_didi2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.503, -1.81, -26.203)
+
+[node name="split-double-sides3" parent="Map" instance=ExtResource("13_irnwm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.503, -1.81, -26.702)
+
+[node name="Ramp-start-c3" parent="Map" instance=ExtResource("4_knjcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003, -1.81, -24.703)
+
+[node name="Straight-wide" parent="Map" instance=ExtResource("9_8nisi")]
+transform = Transform3D(-4.37114e-08, 0, -4.18, 0, 1, 0, 1, 0, -1.82714e-07, -10.4003, -1.80571, -21.7217)
+
+[node name="Curve2" parent="Map" instance=ExtResource("12_didi2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.4758, -1.81, -22.2225)
+
+[node name="Curve3" parent="Map" instance=ExtResource("12_didi2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.50137, -1.8098, -29.202)
+
+[node name="Straight11" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -1.81, -23.7118)
+
+[node name="Straight12" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -1.81, -24.7118)
+
+[node name="Straight13" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -1.81, -25.7118)
+
+[node name="Straight18" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -3.3112, -31.6996)
+
+[node name="Straight19" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -3.3112, -32.6996)
+
+[node name="Straight20" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -3.3112, -33.6996)
+
+[node name="Straight14" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -1.81, -26.7118)
+
+[node name="Straight15" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.98651, -1.81242, -29.7013)
+
+[node name="Straight16" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.98651, -1.81242, -29.7013)
+
+[node name="Straight17" parent="Map" instance=ExtResource("10_rqxui")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.9865, -1.81242, -29.7013)
+
+[node name="wave-c2" parent="Map" instance=ExtResource("14_dehbs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.48905, -1.81013, -30.2001)
+
+[node name="Ramp-long-d2" parent="Map" instance=ExtResource("2_6mtxk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.4845, -3.31308, -29.7029)
+
+[node name="Ramp-long-d3" parent="Map" instance=ExtResource("2_6mtxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978, -3.31161, -28.2091)
+
+[node name="Split-left" parent="Map" instance=ExtResource("15_8xkx3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.4786, -3.31145, -30.2029)
+
+[node name="Straight-wide4" parent="Map" instance=ExtResource("9_8nisi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.18, 0, 0, -38)
+
+[node name="funnel5" parent="Map" instance=ExtResource("3_eki3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40.5896)
+
+[node name="end-square" parent="Map" instance=ExtResource("16_p4i8o")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.5853)
+
 [node name="fan-four2" parent="." instance=ExtResource("11_x1r5m")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.30549, 5.29241, -18.4323)
 fanRange = 4
 fanPower = 5
+
+[node name="fan-four3" parent="." instance=ExtResource("11_x1r5m")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.30549, 5.29241, -21.4323)
+fanRange = 4
+fanPower = 5
+
+[node name="fan-four4" parent="." instance=ExtResource("11_x1r5m")]
+transform = Transform3D(0.919314, -0.393525, 0, 0.393525, 0.919314, 0, 0, 0, 1, -2.72693, 2.96285, -19.4172)
+fanRange = 5
+fanPower = 10
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uj2uo")
@@ -239,3 +443,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.21374, 3.28487)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612372, 0.612372, 0, 3, 0)
+
+[node name="PortArea" parent="." node_paths=PackedStringArray("otherTP") instance=ExtResource("18_1gtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9792, 2.05263, -31.73)
+otherTP = NodePath("../PortArea2")
+
+[node name="PortArea2" parent="." node_paths=PackedStringArray("otherTP") instance=ExtResource("18_1gtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0209374, 5.16624, -33.738)
+otherTP = NodePath("../PortArea")
