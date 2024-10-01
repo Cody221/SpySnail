@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://caxw78npj3nf3"]
 
-[ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://Scenes/PlayerBall.tscn" id="1_uhhox"]
 [ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://Scenes/MapBuildingBlocks/helix_left.tscn" id="2_ryjvw"]
 [ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="3_tj373"]
 [ext_resource type="PackedScene" uid="uid://s1u3kf2lo3xn" path="res://Scenes/MapBuildingBlocks/bend_2.tscn" id="4_3f51b"]
@@ -8,14 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://6puljv6xchpb" path="res://Scenes/MapBuildingBlocks/funnel_2.tscn" id="7_u7sxk"]
 [ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="8_7gory"]
 [ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="8_fp5tm"]
+[ext_resource type="PackedScene" uid="uid://bqmjnynocbmeq" path="res://Scenes/PlayerBall_CamRework.tscn" id="8_jerxm"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="PlayerBall" parent="." instance=ExtResource("1_uhhox")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207737, 2.67972, 8.29563)
-mass = 0.5
-linear_damp_mode = 1
-linear_damp = 1.0
+[node name="PlayerBall" parent="." instance=ExtResource("8_jerxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.891561, 0.452902, 0, -0.452902, -0.891561, 0, 0, 0)

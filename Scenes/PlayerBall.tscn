@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu1nry2w4vhae"]
 
 [ext_resource type="Script" path="res://Scripts/BallMovement.gd" id="1_re8iq"]
-[ext_resource type="PackedScene" uid="uid://c775yrl60rmsy" path="res://Scenes/marble.tscn" id="2_mf6oc"]
+[ext_resource type="ArrayMesh" uid="uid://3jybwf3fx2ex" path="res://Assets/OBJ format/marble-center-butterfly-high.obj" id="2_ltc4h"]
 [ext_resource type="Script" path="res://Scripts/Gimbal.gd" id="3_nbg47"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
@@ -12,7 +12,8 @@ collision_mask = 3
 script = ExtResource("1_re8iq")
 jumpForce = 6
 
-[node name="marble-high" parent="." instance=ExtResource("2_mf6oc")]
+[node name="Marble-center-butterfly-high" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ltc4h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.398531, 0, 0, 0, 0.398531, 0, 0, 0, 0.398531, 0, 0, 0)

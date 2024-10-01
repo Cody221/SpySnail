@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqmjnynocbmeq"]
+
+[ext_resource type="Script" path="res://Scripts/BallMovement.gd" id="1_r58s5"]
+[ext_resource type="ArrayMesh" uid="uid://3jybwf3fx2ex" path="res://Assets/OBJ format/marble-center-butterfly-high.obj" id="2_lrpdv"]
+[ext_resource type="Script" path="res://Scripts/Gimbal.gd" id="3_651xr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
+
+[node name="PlayerBall" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_r58s5")
+jumpForce = 6
+
+[node name="Marble-center-butterfly-high" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_lrpdv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.398531, 0, 0, 0, 0.398531, 0, 0, 0, 0.398531, 0, 0, 0)
+shape = SubResource("SphereShape3D_8bp8f")
+
+[node name="YGimbal" type="Node3D" parent="."]
+top_level = true
+script = ExtResource("3_651xr")
+
+[node name="XGimbal" type="Node3D" parent="YGimbal"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="YGimbal/XGimbal"]
+spring_length = 2.0
+margin = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="YGimbal/XGimbal/SpringArm3D"]
