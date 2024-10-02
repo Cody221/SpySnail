@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6puljv6xchpb" path="res://Scenes/MapBuildingBlocks/funnel_2.tscn" id="7_u7sxk"]
 [ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="8_7gory"]
 [ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="8_fp5tm"]
-[ext_resource type="PackedScene" uid="uid://bqmjnynocbmeq" path="res://Scenes/PlayerBall_CamRework.tscn" id="8_jerxm"]
+[ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://Scenes/PlayerBall.tscn" id="8_jerxm"]
 
 [node name="Node3D" type="Node3D"]
 

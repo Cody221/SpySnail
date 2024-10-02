@@ -22,7 +22,7 @@ func ShowEndScreen():
 	# X / 3 stars; finished in X time; etc.
 
 func Reset():
-	DebugLayer.draw.vectors = [] #need to reset the vectors to draw so they don't try drawing vectors on the freed objects after reload 
+	DebugLayer.draw2D.vectors = [] #need to reset the vectors to draw so they don't try drawing vectors on the freed objects after reload 
 	stopwatch.currentTime = 0
 	get_tree().reload_current_scene()
 	stopwatch.isPaused = false

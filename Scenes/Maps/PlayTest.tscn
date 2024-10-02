@@ -123,7 +123,7 @@ transform = Transform3D(0.960391, 0, -0.278656, 0, 1, 0, 0.278656, 0, 0.960391, 
 mesh = ExtResource("7_6gxl1")
 
 [node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign/Sign"]
-transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -5.38713e-19, 3.49691e-07, 5.28013e-14, 1, -0.364637, 0.240517, 0.00101435)
+transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -6.40357e-19, 3.49691e-07, 5.28012e-14, 1, -0.364637, 0.240517, 0.00101435)
 mesh = ExtResource("8_axwuk")
 
 [node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign/Sign"]
@@ -438,11 +438,8 @@ fanPower = 10
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uj2uo")
 
-[node name="PlayerBall" parent="." instance=ExtResource("2_mnnjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.21374, 3.28487)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612372, 0.612372, 0, 3, 0)
+transform = Transform3D(0.866025, 0.353553, -0.353554, 0, 0.707107, 0.707106, 0.5, -0.612372, 0.612373, 0, 3, 0)
 
 [node name="PortArea" parent="." node_paths=PackedStringArray("otherTP") instance=ExtResource("18_1gtw2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9792, 2.05263, -31.73)
@@ -451,3 +448,6 @@ otherTP = NodePath("../PortArea2")
 [node name="PortArea2" parent="." node_paths=PackedStringArray("otherTP") instance=ExtResource("18_1gtw2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0209374, 5.16624, -33.738)
 otherTP = NodePath("../PortArea")
+
+[node name="PlayerBall" parent="." instance=ExtResource("2_mnnjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.24154, 3.4971)

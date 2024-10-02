@@ -12,13 +12,28 @@ var end = Vector3.ZERO
 #@onready var cam = $YGimbal/XGimbal/Camera3D
 @onready var yGimbal = $YGimbal
 
+var mesh
+
 func _ready():
-	DebugLayer.draw.add_vector(self, "drawDirection", 1, 4, Color(0, 1, 0, 0.5))
+	#DebugLayer.draw2D.add_vector(self, "drawDirection", 1, 4, Color(0, 1, 0, 0.5))
+	#scene start end width color
+	#DebugLayer.draw3D.add_mesh(get_tree().current_scene, )
+	
+	mesh = MeshInstance3D.new()
+	mesh.mesh = CylinderMesh.new()
+	add_child(mesh)
+	mesh.top_level = true
+	
+	
 	contact_monitor = true
 	max_contacts_reported = 1
 	pass
 
 func _process(_delta):
+	mesh.position = position
+	mesh.rotation = drawDirection
+	mesh.mesh.height = drawDirection.length()
+	
 	if position.y <= -50:
 		GameManager.Reset()
 

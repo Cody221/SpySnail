@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfwldfle873h4"]
+[gd_scene load_steps=4 format=3 uid="uid://bfwldfle873h4"]
 
 [ext_resource type="Script" path="res://Scripts/Debug/DebugLayer.gd" id="1_iuo8j"]
-[ext_resource type="Script" path="res://Scripts/Debug/DebugDraw3D.gd" id="1_kgfgh"]
+[ext_resource type="Script" path="res://Scripts/Debug/DebugDraw2D.gd" id="1_kgfgh"]
+[ext_resource type="Script" path="res://Scripts/Debug/DebugDraw3D.gd" id="3_4lt61"]
 
 [node name="DebugLayer" type="CanvasLayer"]
 script = ExtResource("1_iuo8j")
 
-[node name="DebugDraw3D" type="Control" parent="."]
+[node name="DebugDraw2D" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_kgfgh")
+
+[node name="DebugDraw3D" type="Node3D" parent="."]
+script = ExtResource("3_4lt61")
