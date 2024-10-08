@@ -1,4 +1,4 @@
-extends Node3D
+extends MeshInstance3D
 
 @export var fanRange: int
 @export var fanPower : int

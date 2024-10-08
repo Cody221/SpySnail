@@ -12,12 +12,12 @@
 [ext_resource type="FontFile" uid="uid://df6ewyacp4jgt" path="res://Assets/Font/Kenney Future.ttf" id="9_cmh0k"]
 [ext_resource type="PackedScene" uid="uid://dev08qkmbx7ac" path="res://Scenes/MapBuildingBlocks/straight.tscn" id="10_rqxui"]
 [ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://Scenes/MapBuildingBlocks/helix_left.tscn" id="11_qthph"]
-[ext_resource type="PackedScene" uid="uid://buv1f14ir3fbe" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/fan_four_full.tscn" id="11_x1r5m"]
 [ext_resource type="PackedScene" uid="uid://dvyrqxbnx4mx6" path="res://Scenes/MapBuildingBlocks/curve.tscn" id="12_didi2"]
 [ext_resource type="PackedScene" uid="uid://cap72od1fx3oq" path="res://Scenes/MapBuildingBlocks/split_double_sides_2.tscn" id="13_irnwm"]
 [ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="14_dehbs"]
 [ext_resource type="PackedScene" uid="uid://8ri3otmrvco0" path="res://Scenes/MapBuildingBlocks/split_left.tscn" id="15_8xkx3"]
 [ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="16_p4i8o"]
+[ext_resource type="PackedScene" uid="uid://ey5h26ps67p8" path="res://fan_four.tscn" id="17_36fu6"]
 [ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="18_1gtw2"]
 
 [sub_resource type="Animation" id="Animation_07dws"]
@@ -123,7 +123,7 @@ transform = Transform3D(0.960391, 0, -0.278656, 0, 1, 0, 0.278656, 0, 0.960391, 
 mesh = ExtResource("7_6gxl1")
 
 [node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign/Sign"]
-transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -6.40357e-19, 3.49691e-07, 5.28012e-14, 1, -0.364637, 0.240517, 0.00101435)
+transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -8.40257e-19, 3.49691e-07, 5.2801e-14, 1, -0.364637, 0.240517, 0.00101435)
 mesh = ExtResource("8_axwuk")
 
 [node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign/Sign"]
@@ -420,17 +420,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40.5896)
 [node name="end-square" parent="Map" instance=ExtResource("16_p4i8o")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.5853)
 
-[node name="fan-four2" parent="." instance=ExtResource("11_x1r5m")]
+[node name="fan-four" parent="." instance=ExtResource("17_36fu6")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.30549, 5.29241, -18.4323)
-fanRange = 4
-fanPower = 5
+fanRange = 5
+fanPower = 4
 
-[node name="fan-four3" parent="." instance=ExtResource("11_x1r5m")]
+[node name="fan-four2" parent="." instance=ExtResource("17_36fu6")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.30549, 5.29241, -21.4323)
-fanRange = 4
-fanPower = 5
+fanRange = 5
+fanPower = 4
 
-[node name="fan-four4" parent="." instance=ExtResource("11_x1r5m")]
+[node name="fan-four3" parent="." instance=ExtResource("17_36fu6")]
 transform = Transform3D(0.919314, -0.393525, 0, 0.393525, 0.919314, 0, 0, 0, 1, -2.72693, 2.96285, -19.4172)
 fanRange = 5
 fanPower = 10
