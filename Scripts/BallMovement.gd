@@ -7,7 +7,9 @@ var direction = Vector2.ZERO
 var drawDirection = Vector3.ZERO 
 var start = Vector3.ZERO
 var end = Vector3.ZERO
+var jumpsLeft = 0
 
+@export var numberOfJumps : int
 @export var jumpForce : int
 #@onready var cam = $YGimbal/XGimbal/Camera3D
 @onready var yGimbal = $YGimbal
@@ -31,32 +33,37 @@ func _ready():
 	max_contacts_reported = 1
 	pass
 
-func _process(_delta):
+func _process(delta):
 	#mesh.position = position
 	#mesh.rotation.y = drawDirection.y
 	#mesh.mesh.height = drawDirection.length()
-	
-	if position.y <= -50:
-		GameManager.Reset()
-
-func _physics_process(delta):
 	if(Input.is_action_just_pressed("LeftMouse")):
 		start = get_viewport().get_mouse_position()
-	
+
 	if(Input.is_action_pressed("LeftMouse")):
 		end = get_viewport().get_mouse_position()
 		direction = start - end
 		direction = direction.rotated(-yGimbal.rotation.y) * delta
 		drawDirection = Vector3(direction.x, 0, direction.y)
-	
+
 	if(Input.is_action_just_released("LeftMouse")):
 		set_axis_velocity(Vector3(direction.x, 0, direction.y)) #don't need to multiply by delta here since already did before
 		drawDirection = Vector3.ZERO
 	
-	#checks if you're in contact with something before allowing you to jump
-	#this means you can jump off of walls and potentially ceilings as well if it's timed correctly 
-	if(Input.is_action_just_pressed("Jump") and (get_contact_count() != 0)):
+	
+	if(Input.is_action_just_pressed("Jump") and (jumpsLeft > 0)):
 		set_axis_velocity(Vector3(0, jumpForce, 0))
+		jumpsLeft -= 1   
+	
+	if position.y <= -40:
+		GameManager.Reset()
+		
+	#check for contacts to reset jumps
+	if get_contact_count() != 0:
+		jumpsLeft = numberOfJumps
+
+func _physics_process(delta):
+	pass
 	
 
 

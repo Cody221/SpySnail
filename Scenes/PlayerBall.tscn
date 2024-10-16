@@ -12,6 +12,7 @@ collision_mask = 3
 collision_priority = 10.0
 mass = 10.0
 script = ExtResource("1_r58s5")
+numberOfJumps = 1
 jumpForce = 6
 
 [node name="Marble-center-butterfly-high" type="MeshInstance3D" parent="."]

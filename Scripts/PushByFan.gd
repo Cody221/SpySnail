@@ -1,11 +1,14 @@
 extends MeshInstance3D
 
+@onready var particles = $CPUParticles3D
 @export var fanRange: int
 @export var fanPower : int
 var direction
 
 func _ready():
 	#DebugLayer.draw.add_vector(self, "direction", 1, 4, Color(0, 1, 0, 0.5))
+	particles.lifetime = fanRange / 10.0 #lifetime should be within 0-1
+	particles.amount = fanPower 
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

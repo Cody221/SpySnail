@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="14_dehbs"]
 [ext_resource type="PackedScene" uid="uid://8ri3otmrvco0" path="res://Scenes/MapBuildingBlocks/split_left.tscn" id="15_8xkx3"]
 [ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="16_p4i8o"]
-[ext_resource type="PackedScene" uid="uid://ey5h26ps67p8" path="res://fan_four.tscn" id="17_36fu6"]
+[ext_resource type="PackedScene" uid="uid://ey5h26ps67p8" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/fan_four.tscn" id="17_36fu6"]
 [ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="18_1gtw2"]
 
 [sub_resource type="Animation" id="Animation_07dws"]
@@ -123,7 +123,7 @@ transform = Transform3D(0.960391, 0, -0.278656, 0, 1, 0, 0.278656, 0, 0.960391, 
 mesh = ExtResource("7_6gxl1")
 
 [node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign/Sign"]
-transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -8.40257e-19, 3.49691e-07, 5.2801e-14, 1, -0.364637, 0.240517, 0.00101435)
+transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -1.04016e-18, 3.49691e-07, 5.28008e-14, 1, -0.364637, 0.240517, 0.00101435)
 mesh = ExtResource("8_axwuk")
 
 [node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign/Sign"]

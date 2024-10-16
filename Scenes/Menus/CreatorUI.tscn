@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b343s11jh253c"]
+
+[ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_atw6y"]
+[ext_resource type="Script" path="res://Scenes/Menus/CreatorUI.gd" id="2_3rqmt"]
+
+[node name="UI" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_atw6y")
+script = ExtResource("2_3rqmt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+item_count = 4
+popup/item_0/text = "Straight"
+popup/item_0/id = 0
+popup/item_1/text = "Curve"
+popup/item_1/id = 1
+popup/item_2/text = "Start"
+popup/item_2/id = 2
+popup/item_3/text = "Finish"
+popup/item_3/id = 3

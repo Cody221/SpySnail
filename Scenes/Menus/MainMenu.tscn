@@ -41,14 +41,15 @@ script = ExtResource("2_g4eje")
 menuToHide = NodePath("../..")
 menuToShow = NodePath("../../../LevelGrid")
 
-[node name="MapMakerButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="MapMakerButton" type="Button" parent="HBoxContainer/VBoxContainer" node_paths=PackedStringArray("menuToHide", "menuToShow")]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme = ExtResource("1_x54d6")
 theme_override_font_sizes/font_size = 35
 text = "Create"
-script = ExtResource("4_wmn65")
-scenePath = "res://Scenes/Maps/MapMaker.tscn"
+script = ExtResource("2_g4eje")
+menuToHide = NodePath("../..")
+menuToShow = NodePath("../../../CreatorGrid")
 
 [node name="LevelGrid" type="GridContainer" parent="."]
 visible = false
@@ -73,6 +74,35 @@ script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/PlayTest.tscn"
 
 [node name="ReturnButton" type="Button" parent="LevelGrid" node_paths=PackedStringArray("menuToHide", "menuToShow")]
+layout_mode = 2
+theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 20
+text = "Return"
+script = ExtResource("2_g4eje")
+menuToHide = NodePath("..")
+menuToShow = NodePath("../../HBoxContainer")
+
+[node name="CreatorGrid" type="GridContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_x54d6")
+
+[node name="NewMapButton" type="Button" parent="CreatorGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "  new map"
+script = ExtResource("4_wmn65")
+scenePath = "res://Scenes/Maps/MapMaker.tscn"
+
+[node name="LoadMapButton" type="Button" parent="CreatorGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Load map"
+script = ExtResource("4_wmn65")
+scenePath = "res://Scenes/Maps/MapMaker.tscn"
+
+[node name="ReturnButton" type="Button" parent="CreatorGrid" node_paths=PackedStringArray("menuToHide", "menuToShow")]
 layout_mode = 2
 theme = ExtResource("1_x54d6")
 theme_override_font_sizes/font_size = 20

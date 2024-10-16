@@ -12,3 +12,9 @@ mesh = ExtResource("1_c3amh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0x4o")
+
+[node name="SnapPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34329e-05, 0.00608268, 0.502109)
+
+[node name="SnapPoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34329e-05, 0.00608268, -0.499359)
