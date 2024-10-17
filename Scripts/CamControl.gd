@@ -1,13 +1,13 @@
 extends Camera3D
 
 @export var mouseSens = 0.25
-@export var camSpeed = 3
-@onready var options = $"../UI"
-@onready var map = $"../Map"
+@export var camSpeed = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	GameManager.creatorManager.map = $"../Map"
+	GameManager.creatorManager.options = $"../UI"
+	GameManager.creatorManager.cam = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -27,7 +27,7 @@ func _unhandled_input(event):
 				rotation_degrees.x -= event.relative.y * mouseSens
 			
 	if(Input.is_action_just_released("LeftMouse")):
-		add_block(event.position)
+		GameManager.creatorManager.add_block(event.position)
 	
 	#show the mouse on release
 	if(!Input.is_action_pressed("RightMouse")):
@@ -35,25 +35,6 @@ func _unhandled_input(event):
 		
 	#need to clamp rotation so cam can't spin a direction infinitely
 	rotation_degrees.x = clamp(rotation_degrees.x, -90, 90)
-	
-
-#returns position of intersection or max point along the ray if no intersection
-func raycast_from_mouse(mPos, collisionMask):
-	var rayStart = project_ray_origin(mPos)
-	var rayEnd = rayStart + project_ray_normal(mPos) * 10#raylength
-	
-	var space = get_world_3d().direct_space_state
-	if space == null:
-		return
-	
-	var query = PhysicsRayQueryParameters3D.create(rayStart, rayEnd, collisionMask)
-	query.collide_with_areas = true
-	
-	var res = space.intersect_ray(query)
-	if res:
-		return res.position
-	else:
-		return rayEnd
 
 func handle_movement(delta):
 	if Input.is_action_pressed("Up"):
@@ -77,14 +58,4 @@ func handle_movement(delta):
 	if Input.is_action_pressed("Right"):
 		position += global_basis.x * delta * camSpeed
 
-#adds block to map
-func add_block(mPos):
-	#dont add shit if nothing is selected 
-	if options.selectedOption == null:
-		return
-	#instantiate the node and add block as a child of the map
-	var node = options.selectedOption.instantiate()
-	map.add_child(node)
-	#need to raycast from the mouse and -1 is the last child added
-	map.get_child(-1).position = raycast_from_mouse(mPos, 1)
 

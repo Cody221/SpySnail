@@ -26,5 +26,6 @@ script = ExtResource("1_bcyp7")
 
 [node name="UI" parent="." node_paths=PackedStringArray("map") instance=ExtResource("3_eh5pa")]
 map = NodePath("../Map")
+metadata/_edit_use_anchors_ = true
 
 [node name="Map" type="Node3D" parent="."]

@@ -64,6 +64,7 @@ theme_override_font_sizes/font_size = 20
 text = "Test"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/Test.tscn"
+sceneType = 1
 
 [node name="TutorialButton" type="Button" parent="LevelGrid"]
 layout_mode = 2
@@ -72,6 +73,7 @@ theme_override_font_sizes/font_size = 20
 text = "tutorial"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/PlayTest.tscn"
+sceneType = 1
 
 [node name="ReturnButton" type="Button" parent="LevelGrid" node_paths=PackedStringArray("menuToHide", "menuToShow")]
 layout_mode = 2
@@ -94,6 +96,7 @@ theme_override_font_sizes/font_size = 20
 text = "  new map"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/MapMaker.tscn"
+sceneType = 2
 
 [node name="LoadMapButton" type="Button" parent="CreatorGrid"]
 layout_mode = 2
@@ -101,6 +104,7 @@ theme_override_font_sizes/font_size = 20
 text = "Load map"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/MapMaker.tscn"
+sceneType = 2
 
 [node name="ReturnButton" type="Button" parent="CreatorGrid" node_paths=PackedStringArray("menuToHide", "menuToShow")]
 layout_mode = 2

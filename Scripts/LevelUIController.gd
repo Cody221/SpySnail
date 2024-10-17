@@ -7,15 +7,15 @@ extends MarginContainer
 @onready var sumWindow = $SummaryWindow
 
 func _ready():
-	restartButton.pressed.connect(GameManager.Reset)
-	returnButton.pressed.connect(GameManager.EndLevel)
-	GameManager.level_complete.connect(sumWindow.show)
+	restartButton.pressed.connect(GameManager.levelManager.Reset)
+	returnButton.pressed.connect(GameManager.levelManager.EndLevel)
+	GameManager.levelManager.level_complete.connect(sumWindow.show)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	timeLabel.text = "Time:  " + str(snapped(GameManager.stopwatch.currentTime, 0.01))
-	endofLevelTime.text = "Time: " + str(snapped(GameManager.stopwatch.currentTime, 0.01))
+	timeLabel.text = "Time:  " + str(snapped(GameManager.levelManager.stopwatch.currentTime, 0.01))
+	endofLevelTime.text = "Time: " + str(snapped(GameManager.levelManager.stopwatch.currentTime, 0.01))
 
 
 

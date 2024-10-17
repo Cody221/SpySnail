@@ -17,7 +17,7 @@ var jumpsLeft = 0
 #var mesh
 
 func _ready():
-	DebugLayer.draw2D.add_vector(self, "drawDirection", 1, 4, Color(0, 1, 0, 0.5))
+	#GameManager.debugLayer.draw2D.add_vector(self, "drawDirection", 1, 4, Color(0, 1, 0, 0.5))
 	#scene start end width color
 	#DebugLayer.draw3D.add_mesh(get_tree().current_scene, )
 	
