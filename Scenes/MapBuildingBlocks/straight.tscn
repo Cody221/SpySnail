@@ -20,3 +20,4 @@ script = ExtResource("2_icxfs")
 
 [node name="SnapPoint2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("2_icxfs")

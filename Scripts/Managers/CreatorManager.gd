@@ -27,7 +27,7 @@ func add_block(mPos):
 		# -1 is the last child added
 		map.get_child(-1).position = res
 		return
-	#else it is a dictonary
+	#otherwise it is a dictonary
 	snap_blocks(res.position, res.collider, map.get_child(-1))
 	
 
@@ -51,14 +51,18 @@ func raycast_from_mouse(mPos, collisionMask):
 
 #snaps block2 onto block1
 func snap_blocks(collisionPos, block1, block2):
+	#get parent of staticbody 
 	block1 = block1.get_parent()
+	#get snapping points of collider
 	var snap1 = block1.get_child(1)
 	var snap2 = block1.get_child(2)
+	#get snapping points of block2
+	var block2snap1 = block2.get_child(1)
 	
-	if collisionPos.distance_to(snap1.global_position) < collisionPos.distance_to(snap2.global_position):
-		block2.position = block1.position + snap1.position * 2
+	if ((collisionPos.distance_to(snap1.global_position) < collisionPos.distance_to(snap2.global_position)) and !snap1.isSnapped):
+		block2snap1.snap(snap1)
 	else:
-		block2.position = block1.position + snap2.position * 2
+		block2snap1.snap(snap2)
 
 	
 

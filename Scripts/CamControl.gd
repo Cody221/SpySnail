@@ -32,7 +32,7 @@ func _unhandled_input(event):
 	#show the mouse on release
 	if(!Input.is_action_pressed("RightMouse")):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
+	
 	#need to clamp rotation so cam can't spin a direction infinitely
 	rotation_degrees.x = clamp(rotation_degrees.x, -90, 90)
 
