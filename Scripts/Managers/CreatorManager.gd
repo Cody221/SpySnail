@@ -6,11 +6,14 @@ var options
 var map
 var cam
 
+var useSnap1 = true
+
 func _init():
 	pass
 
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("Key_R"):
+		useSnap1 = !useSnap1
 
 #adds block to map
 func add_block(mPos):
@@ -57,12 +60,16 @@ func snap_blocks(collisionPos, block1, block2):
 	var snap1 = block1.get_child(1)
 	var snap2 = block1.get_child(2)
 	#get snapping points of block2
-	var block2snap1 = block2.get_child(1)
+	var block2snap
+	if useSnap1:
+		block2snap = block2.get_child(1)
+	else:
+		block2snap = block2.get_child(2)
 	
 	if ((collisionPos.distance_to(snap1.global_position) < collisionPos.distance_to(snap2.global_position)) and !snap1.isSnapped):
-		block2snap1.snap(snap1)
+		block2snap.snap(snap1)
 	else:
-		block2snap1.snap(snap2)
+		block2snap.snap(snap2)
 
 	
 

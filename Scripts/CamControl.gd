@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	handle_movement(delta)
+	handle_input(delta)
 
 func _unhandled_input(event):
 	if (event is InputEventMouseMotion):
@@ -30,13 +30,13 @@ func _unhandled_input(event):
 		GameManager.creatorManager.add_block(event.position)
 	
 	#show the mouse on release
-	if(!Input.is_action_pressed("RightMouse")):
+	if(Input.is_action_just_released("RightMouse")):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	#need to clamp rotation so cam can't spin a direction infinitely
 	rotation_degrees.x = clamp(rotation_degrees.x, -90, 90)
 
-func handle_movement(delta):
+func handle_input(delta):
 	if Input.is_action_pressed("Up"):
 		position += Vector3.UP * delta * camSpeed
 	
