@@ -15,8 +15,7 @@ func _process(delta):
 
 func update_normals():
 	for i in ListofSnapPoints:
-		#print(i.name, "before rotation", i.normal)
 		i.normal = i.normal.rotated(basis.y, rotation.y)
-		#print(i.name, "after rotation", i.normal)
+		
 
 

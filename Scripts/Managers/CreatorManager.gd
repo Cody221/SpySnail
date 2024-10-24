@@ -7,12 +7,14 @@ var map
 var cam
 
 var useSnap1 = true
+var snapIndex = 0
 
 func _init():
 	pass
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Key_R"):
+		snapIndex += 1
 		useSnap1 = !useSnap1
 
 #adds block to map
@@ -44,7 +46,7 @@ func raycast_from_mouse(mPos, collisionMask):
 		return
 	
 	var query = PhysicsRayQueryParameters3D.create(rayStart, rayEnd, collisionMask)
-	query.collide_with_areas = true
+	#query.collide_with_areas = true
 	
 	var res = space.intersect_ray(query)
 	if res:
@@ -57,20 +59,23 @@ func snap_blocks(collisionPos, block1, block2):
 	#get parent of staticbody 
 	block1 = block1.get_parent()
 	#get snapping points of collider
-	var snap1 = block1.get_child(1)
-	var snap2 = block1.get_child(2)
+	var block1Snaps = block1.ListofSnapPoints
+	var snap1 = block1Snaps[0]
+	var snap2 = block1Snaps[1]
 	#get snapping points of block2
+	var block2Snaps = block2.ListofSnapPoints
+	#not every block has 2 snapping points, some have more some have less 
+	#should ues the list of points that the parent has 
 	var block2snap
 	if useSnap1:
-		block2snap = block2.get_child(1)
+		block2snap = block2.get_child(-2)
 	else:
-		block2snap = block2.get_child(2)
+		block2snap = block2.get_child(-1)
 	
 	if ((collisionPos.distance_to(snap1.global_position) < collisionPos.distance_to(snap2.global_position)) and !snap1.isSnapped):
 		block2snap.snap(snap1)
 	else:
 		block2snap.snap(snap2)
-
 	
 
 

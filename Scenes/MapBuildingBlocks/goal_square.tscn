@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c53fmdhfg2snf"]
+[gd_scene load_steps=11 format=3 uid="uid://c53fmdhfg2snf"]
 
 [ext_resource type="Texture2D" uid="uid://b5dv8jp671c7n" path="res://Assets/GLB format/Textures/colormap.png" id="1_6j7af"]
+[ext_resource type="Script" path="res://Scripts/SnapPointContainer.gd" id="2_lh3f5"]
 [ext_resource type="ArrayMesh" uid="uid://0linqhdyk28h" path="res://Assets/OBJ format/banner-hanging-double-high.obj" id="2_onejd"]
 [ext_resource type="Script" path="res://Scripts/GoalTrigger.gd" id="3_ee5bm"]
+[ext_resource type="Script" path="res://Scripts/SnapPoint.gd" id="5_218an"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te5s7"]
 resource_name = "colormap"
@@ -48,9 +50,11 @@ data = PackedVector3Array(0.2875, 0.3125, 0.2875, 0.2875, 0.3125, -0.5, 0.35, 0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_hd05v"]
 size = Vector3(0.852432, 1.24268, 0.921814)
 
-[node name="end-square" type="MeshInstance3D"]
+[node name="end-square" type="MeshInstance3D" node_paths=PackedStringArray("ListofSnapPoints")]
 mesh = SubResource("ArrayMesh_p135l")
 skeleton = NodePath("")
+script = ExtResource("2_lh3f5")
+ListofSnapPoints = [NodePath("SnappingPoint")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -68,3 +72,7 @@ script = ExtResource("3_ee5bm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000938416, 0.858744, -0.0215759)
 shape = SubResource("BoxShape3D_hd05v")
+
+[node name="SnappingPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("5_218an")

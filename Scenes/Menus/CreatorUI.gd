@@ -5,8 +5,12 @@ extends MarginContainer
 @onready var optionButton = $HBoxContainer/VBoxContainer/OptionButton
 var selectedOption
 
+#preloading all the blocks for instantiation
 var straight = preload("res://Scenes/MapBuildingBlocks/straight.tscn")
 var curve = preload("res://Scenes/MapBuildingBlocks/curve.tscn")
+var goal = preload("res://Scenes/MapBuildingBlocks/goal_square.tscn")
+var rampD = preload("res://Scenes/MapBuildingBlocks/ramp_d_long.tscn")
+var helixLeft = preload("res://Scenes/MapBuildingBlocks/helix_left.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +24,8 @@ func _process(_delta):
 		1:
 			selectedOption = curve
 		2:
-			pass
+			selectedOption = rampD
+		3:
+			selectedOption = goal
 		_:
 			selectedOption = null
