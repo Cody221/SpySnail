@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu1nry2w4vhae"]
 
-[ext_resource type="Script" path="res://Scripts/BallMovement.gd" id="1_r58s5"]
+[ext_resource type="Script" path="res://Scripts/Player/BallMovement.gd" id="1_r58s5"]
 [ext_resource type="ArrayMesh" uid="uid://3jybwf3fx2ex" path="res://Assets/OBJ format/marble-center-butterfly-high.obj" id="2_lrpdv"]
-[ext_resource type="Script" path="res://Scripts/Gimbal.gd" id="3_651xr"]
+[ext_resource type="Script" path="res://Scripts/Player/Gimbal.gd" id="3_651xr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
 

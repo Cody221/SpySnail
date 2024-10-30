@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b343s11jh253c"]
 
 [ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_atw6y"]
-[ext_resource type="Script" path="res://Scenes/Menus/CreatorUI.gd" id="2_3rqmt"]
+[ext_resource type="Script" path="res://Scripts/MapCreator/CreatorUI.gd" id="2_3rqmt"]
 
 [node name="UI" type="MarginContainer"]
 anchors_preset = 15
@@ -21,12 +21,18 @@ layout_mode = 2
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-item_count = 4
-popup/item_0/text = "Straight"
+item_count = 7
+popup/item_0/text = "Start"
 popup/item_0/id = 0
-popup/item_1/text = "Curve"
+popup/item_1/text = "Finish"
 popup/item_1/id = 1
-popup/item_2/text = "Start"
+popup/item_2/text = "Straight"
 popup/item_2/id = 2
-popup/item_3/text = "Finish"
+popup/item_3/text = "Curve"
 popup/item_3/id = 3
+popup/item_4/text = "Steep Ramp"
+popup/item_4/id = 4
+popup/item_5/text = "Split Left"
+popup/item_5/id = 5
+popup/item_6/text = "Split Right"
+popup/item_6/id = 6

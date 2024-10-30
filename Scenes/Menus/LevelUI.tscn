@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://m2pdr5v00uwe"]
 
-[ext_resource type="Script" path="res://Scripts/LevelUIController.gd" id="1_cvxgr"]
+[ext_resource type="Script" path="res://Scripts/Menu/LevelUIController.gd" id="1_cvxgr"]
 [ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_ka0o4"]
 
 [node name="UI" type="MarginContainer"]

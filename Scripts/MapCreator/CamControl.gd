@@ -6,7 +6,7 @@ extends Camera3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.creatorManager.map = $"../Map"
-	GameManager.creatorManager.options = $"../UI"
+	GameManager.creatorManager.UI = $"../UI"
 	GameManager.creatorManager.cam = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +17,7 @@ func _unhandled_input(event):
 	if (event is InputEventMouseMotion):
 		if(Input.is_action_pressed("RightMouse")):
 			#hide the mouse
+			GameManager.creatorManager.hide_ghost_block()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			#mouse moved in x direction
 			if event.relative.x != 0:
@@ -32,6 +33,8 @@ func _unhandled_input(event):
 	#show the mouse on release
 	if(Input.is_action_just_released("RightMouse")):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		GameManager.creatorManager.show_ghost_block()
+		
 	
 	#need to clamp rotation so cam can't spin a direction infinitely
 	rotation_degrees.x = clamp(rotation_degrees.x, -90, 90)
@@ -57,5 +60,9 @@ func handle_input(delta):
 	
 	if Input.is_action_pressed("Right"):
 		position += global_basis.x * delta * camSpeed
+		
+	if Input.is_action_just_pressed("Undo"):
+		#just deletes last block placed
+		GameManager.creatorManager.undo()
 
 

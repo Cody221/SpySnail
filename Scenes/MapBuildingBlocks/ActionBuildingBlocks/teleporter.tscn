@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://pobc3834haqk"]
 
 [ext_resource type="Texture2D" uid="uid://b5dv8jp671c7n" path="res://Assets/GLB format/Textures/colormap.png" id="2_a1uhn"]
-[ext_resource type="Script" path="res://Scripts/Teleporter.gd" id="2_ji8ly"]
+[ext_resource type="Script" path="res://Scripts/Level/Teleporter.gd" id="2_ji8ly"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjnum"]
 size = Vector3(0.486153, 0.208099, 0.76709)

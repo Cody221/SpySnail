@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ey5h26ps67p8"]
 
 [ext_resource type="Texture2D" uid="uid://b5dv8jp671c7n" path="res://Assets/GLB format/Textures/colormap.png" id="1_dx15l"]
-[ext_resource type="Script" path="res://Scripts/PushByFan.gd" id="2_lxm6j"]
+[ext_resource type="Script" path="res://Scripts/Level/PushByFan.gd" id="2_lxm6j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egxdu"]
 resource_name = "colormap"

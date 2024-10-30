@@ -2,28 +2,79 @@ class_name CreatorManager extends Node
 
 #references to respective nodes in mapmaker scene
 #instantiated in CamControl.gd
-var options
+var UI
 var map
 var cam
 
 var useSnap1 = true
 var snapIndex = 0
+var ghostBlock
 
 func _init():
 	pass
 
 func _process(_delta):
+	if ghostBlock:
+		var res = raycast_from_mouse(cam.get_viewport().get_mouse_position(),1)
+		if typeof(res) == TYPE_VECTOR3:
+			ghostBlock.position = res
+		else:
+			snap_ghost_block(res.collider.get_parent(), res.position)
+	
 	if Input.is_action_just_pressed("Key_R"):
 		snapIndex += 1
-		useSnap1 = !useSnap1
+		if snapIndex >= ghostBlock.listOfSnapPoints.size():
+			snapIndex = 0
+
+#undos block placed last 
+func undo():
+	if map.get_child_count() > 0:
+		var lastPlaced = map.get_child(-1)
+		if is_instance_valid(lastPlaced):
+			lastPlaced.unlock_snaps()
+			lastPlaced.queue_free()
+
+#called when a block is selected 
+func add_ghost_block():
+	if ((UI.selectedOption != null)):
+		if ghostBlock != null:
+			ghostBlock.queue_free()
+		var node = UI.selectedOption.instantiate()
+		#config node
+		node.set_name("Ghost Block")
+		node.isGhost = true
+		node.transparency = 0.9
+		node.find_child("StaticBody3D").set_collision_layer(0)
+		#add node
+		map.add_sibling(node)
+		ghostBlock = node
+
+func rotate_ghost_block(angle):
+	ghostBlock.rotation = Vector3(0, angle, 0)
+
+func hide_ghost_block():
+	if ghostBlock != null:
+		ghostBlock.visible = false
+
+func show_ghost_block():
+	if ghostBlock != null:
+		ghostBlock.visible = true
+
+func snap_ghost_block(block, mousePos):
+	snap_blocks(block, ghostBlock)
+	ghostBlock.unlock_snaps()
+
+func unsnap_ghost_block():
+	ghostBlock.snappedGhost = false
+	ghostBlock.unlock_snaps()
 
 #adds block to map
 func add_block(mPos):
 	#dont add shit if nothing is selected 
-	if options.selectedOption == null:
+	if UI.selectedOption == null:
 		return
 	#instantiate the node and add block as a child of the map
-	var node = options.selectedOption.instantiate()
+	var node = UI.selectedOption.instantiate()
 	map.add_child(node)
 	#need to raycast from the mouse
 	var res = raycast_from_mouse(mPos, 1)
@@ -33,8 +84,7 @@ func add_block(mPos):
 		map.get_child(-1).position = res
 		return
 	#otherwise it is a dictonary
-	snap_blocks(res.position, res.collider, map.get_child(-1))
-	
+	snap_blocks(res.collider.get_parent(), map.get_child(-1), res.position)
 
 #returns position of intersection or max point along the ray if no intersection
 func raycast_from_mouse(mPos, collisionMask):
@@ -46,6 +96,7 @@ func raycast_from_mouse(mPos, collisionMask):
 		return
 	
 	var query = PhysicsRayQueryParameters3D.create(rayStart, rayEnd, collisionMask)
+	query.hit_back_faces = false
 	#query.collide_with_areas = true
 	
 	var res = space.intersect_ray(query)
@@ -54,30 +105,15 @@ func raycast_from_mouse(mPos, collisionMask):
 	else:
 		return rayEnd
 
-#snaps block2 onto block1
-func snap_blocks(collisionPos, block1, block2):
-	#get parent of staticbody 
-	block1 = block1.get_parent()
-	#get snapping points of collider
-	var block1Snaps = block1.ListofSnapPoints
-	var snap1 = block1Snaps[0]
-	var snap2 = block1Snaps[1]
-	#get snapping points of block2
-	var block2Snaps = block2.ListofSnapPoints
-	#not every block has 2 snapping points, some have more some have less 
-	#should ues the list of points that the parent has 
-	var block2snap
-	if useSnap1:
-		block2snap = block2.get_child(-2)
-	else:
-		block2snap = block2.get_child(-1)
+#snaps BLOCK2 onto BLOCK1
+func snap_blocks(block1, block2, collisionPos = null):
+	if collisionPos == null:
+		collisionPos = block2.global_position
 	
-	if ((collisionPos.distance_to(snap1.global_position) < collisionPos.distance_to(snap2.global_position)) and !snap1.isSnapped):
-		block2snap.snap(snap1)
-	else:
-		block2snap.snap(snap2)
+	var block1Snaps = block1.listOfSnapPoints
+	var block2Snaps = block2.listOfSnapPoints
 	
-
-
-
-
+	var closestSnap = block1.get_closest_snap(collisionPos)
+	#closestSnap will be null if all snap points are taken already 
+	if closestSnap != null:
+		block2Snaps[snapIndex].snap(closestSnap)

@@ -62,7 +62,7 @@ func _process(delta):
 	if get_contact_count() != 0:
 		jumpsLeft = numberOfJumps
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 	
 

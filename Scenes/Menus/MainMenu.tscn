@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cinw3m3cputso"]
 
 [ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_x54d6"]
-[ext_resource type="Script" path="res://Scripts/MenuChangeButton.gd" id="2_g4eje"]
-[ext_resource type="Script" path="res://Scripts/SceneChangeButton.gd" id="4_wmn65"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuChangeButton.gd" id="2_g4eje"]
+[ext_resource type="Script" path="res://Scripts/Menu/SceneChangeButton.gd" id="4_wmn65"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15

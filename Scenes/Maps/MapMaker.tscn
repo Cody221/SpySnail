@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1b2g12r6dhbd"]
 
-[ext_resource type="Script" path="res://Scripts/CamControl.gd" id="1_bcyp7"]
+[ext_resource type="Script" path="res://Scripts/MapCreator/CamControl.gd" id="1_bcyp7"]
 [ext_resource type="PackedScene" uid="uid://b343s11jh253c" path="res://Scenes/Menus/CreatorUI.tscn" id="3_eh5pa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5di1f"]
@@ -24,8 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 0.442289, 0.896873, 0, -0.896873, 0.442289, 
 environment = SubResource("Environment_s1fko")
 script = ExtResource("1_bcyp7")
 
-[node name="UI" parent="." node_paths=PackedStringArray("map") instance=ExtResource("3_eh5pa")]
-map = NodePath("../Map")
+[node name="UI" parent="." instance=ExtResource("3_eh5pa")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Map" type="Node3D" parent="."]
