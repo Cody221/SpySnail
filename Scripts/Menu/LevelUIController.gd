@@ -5,8 +5,10 @@ extends MarginContainer
 @onready var restartButton = $SummaryWindow/HBoxContainer/VBoxContainer/RestartButton
 @onready var returnButton = $SummaryWindow/HBoxContainer/VBoxContainer/ReturnButton
 @onready var sumWindow = $SummaryWindow
+@onready var jumpBar = $HBoxContainer2/VBoxContainer/TextureProgressBar
 
 func _ready():
+	GameManager.currentUI = self
 	restartButton.pressed.connect(GameManager.levelManager.Reset)
 	returnButton.pressed.connect(GameManager.levelManager.EndLevel)
 	GameManager.levelManager.level_complete.connect(sumWindow.show)

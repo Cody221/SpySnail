@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://caxw78npj3nf3"]
+[gd_scene load_steps=10 format=3 uid="uid://caxw78npj3nf3"]
 
 [ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://Scenes/MapBuildingBlocks/helix_left.tscn" id="2_ryjvw"]
 [ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="3_tj373"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="8_7gory"]
 [ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="8_fp5tm"]
 [ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://Scenes/PlayerBall.tscn" id="8_jerxm"]
+[ext_resource type="PackedScene" uid="uid://m2pdr5v00uwe" path="res://Scenes/Menus/LevelUI.tscn" id="9_h70w5"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -33,8 +34,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.790
 
 [node name="fan-four2" parent="." instance=ExtResource("5_ut6yp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, -0.222, -3.506)
-fanRange = 5
-fanPower = 5
 
 [node name="funnel2" parent="." instance=ExtResource("7_u7sxk")]
 transform = Transform3D(180, 0, 0, 0, 1.672, 0, 0, 0, 227.075, -4.35701, -0.413152, 3.39395)
@@ -49,3 +48,5 @@ otherTP = NodePath("../PortArea")
 
 [node name="end-square2" parent="." instance=ExtResource("8_7gory")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83672)
+
+[node name="UI" parent="." instance=ExtResource("9_h70w5")]

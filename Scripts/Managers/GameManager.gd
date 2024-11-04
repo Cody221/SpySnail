@@ -2,14 +2,16 @@ extends Node
 
 enum SCENE_TYPE {MENU, LEVEL, CREATOR}
 
-#signals for scene loads
-signal creator_loaded
+#current UI
+var currentUI 
 #manager declaration
 var levelManager : LevelManager
 var creatorManager : CreatorManager
 var debugLayer : DebugLayer
 #active manager list
 var activeManagers = []
+#active scene type
+var activeScene : SCENE_TYPE
 
 func _ready():
 	#fullscreen 
@@ -36,9 +38,11 @@ func LoadScene(scene : String, sceneType):
 	
 	match sceneType:
 		SCENE_TYPE.MENU:
-			pass
+			activeScene = SCENE_TYPE.MENU
 		SCENE_TYPE.LEVEL:
 			activeManagers.append(levelManager)
 			debugLayer = DebugLayer.new()
+			activeScene = SCENE_TYPE.LEVEL
 		SCENE_TYPE.CREATOR:
 			activeManagers.append(creatorManager)
+			activeScene = SCENE_TYPE.CREATOR

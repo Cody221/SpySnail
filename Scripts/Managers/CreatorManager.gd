@@ -20,6 +20,7 @@ func _process(_delta):
 			ghostBlock.position = res
 		else:
 			snap_ghost_block(res.collider.get_parent(), res.position)
+			ghostBlock.snappedGhost = true
 	
 	if Input.is_action_just_pressed("Key_R"):
 		snapIndex += 1
@@ -31,8 +32,7 @@ func undo():
 	if map.get_child_count() > 0:
 		var lastPlaced = map.get_child(-1)
 		if is_instance_valid(lastPlaced):
-			lastPlaced.unlock_snaps()
-			lastPlaced.queue_free()
+			lastPlaced.delete()
 
 #called when a block is selected 
 func add_ghost_block():
@@ -61,8 +61,7 @@ func show_ghost_block():
 		ghostBlock.visible = true
 
 func snap_ghost_block(block, mousePos):
-	snap_blocks(block, ghostBlock)
-	ghostBlock.unlock_snaps()
+	snap_blocks(block, ghostBlock, mousePos)
 
 func unsnap_ghost_block():
 	ghostBlock.snappedGhost = false
@@ -110,7 +109,6 @@ func snap_blocks(block1, block2, collisionPos = null):
 	if collisionPos == null:
 		collisionPos = block2.global_position
 	
-	var block1Snaps = block1.listOfSnapPoints
 	var block2Snaps = block2.listOfSnapPoints
 	
 	var closestSnap = block1.get_closest_snap(collisionPos)

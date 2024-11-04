@@ -10,7 +10,7 @@ func _process(delta):
 	stopwatch._process(delta)#need to call stopwatch tick function
 
 func Reset():
-	GameManager.debugLayer.draw2D.vectors = [] #need to reset the vectors to draw so they don't try drawing vectors on the freed objects after reload 
+	#GameManager.debugLayer.draw2D.vectors = [] #need to reset the vectors to draw so they don't try drawing vectors on the freed objects after reload 
 	stopwatch.currentTime = 0
 	GameManager.get_tree().reload_current_scene()
 	stopwatch.isPaused = false

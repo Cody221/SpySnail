@@ -7,36 +7,25 @@ var direction = Vector2.ZERO
 var drawDirection = Vector3.ZERO 
 var start = Vector3.ZERO
 var end = Vector3.ZERO
-var jumpsLeft = 0
 
+var jumpAllowed : bool = true
 @export var numberOfJumps : int
-@export var jumpForce : int
-#@onready var cam = $YGimbal/XGimbal/Camera3D
+var jumpForce : float
 @onready var yGimbal = $YGimbal
 
-#var mesh
+var drawArrow
 
 func _ready():
-	#GameManager.debugLayer.draw2D.add_vector(self, "drawDirection", 1, 4, Color(0, 1, 0, 0.5))
-	#scene start end width color
-	#DebugLayer.draw3D.add_mesh(get_tree().current_scene, )
-	
-	#mesh = MeshInstance3D.new()
-	#mesh.mesh = CylinderMesh.new()
-	#add_child(mesh)
-	#mesh.top_level = true
-	#mesh.mesh.top_radiu
-	#mesh.rotation.x = 60
-	#
-	
-	contact_monitor = true
-	max_contacts_reported = 1
-	pass
+	drawArrow = DebugArrow.new(self, drawDirection)
 
 func _process(delta):
-	#mesh.position = position
-	#mesh.rotation.y = drawDirection.y
-	#mesh.mesh.height = drawDirection.length()
+	GameManager.currentUI.jumpBar.value = jumpForce
+	handle_input(delta)
+	
+	if position.y <= -40:
+		GameManager.Reset()
+
+func handle_input(delta):
 	if(Input.is_action_just_pressed("LeftMouse")):
 		start = get_viewport().get_mouse_position()
 
@@ -47,25 +36,14 @@ func _process(delta):
 		drawDirection = Vector3(direction.x, 0, direction.y)
 
 	if(Input.is_action_just_released("LeftMouse")):
-		set_axis_velocity(Vector3(direction.x, 0, direction.y)) #don't need to multiply by delta here since already did before
+		set_axis_velocity(Vector3(direction.x, 0, direction.y)) #don't need to multiply by delta here(already did)
 		drawDirection = Vector3.ZERO
 	
+	if(Input.is_action_pressed("Jump")):
+		if jumpForce < 10:
+			jumpForce += delta * 5.0
 	
-	if(Input.is_action_just_pressed("Jump") and (jumpsLeft > 0)):
+	if(Input.is_action_just_released("Jump") and jumpAllowed):
 		set_axis_velocity(Vector3(0, jumpForce, 0))
-		jumpsLeft -= 1   
-	
-	if position.y <= -40:
-		GameManager.Reset()
-		
-	#check for contacts to reset jumps
-	if get_contact_count() != 0:
-		jumpsLeft = numberOfJumps
-
-func _physics_process(_delta):
-	pass
-	
-
-
-
+		jumpForce = 0 
 

@@ -10,17 +10,19 @@ var snappedGhost = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#FUNCTIONALITY FOR SNAPPING GHOST
-	if !isGhost:
-		#myMesh.mouse_entered.connect(func(): GameManager.creatorManager.snap_ghost_block(self))
-		myMesh.mouse_exited.connect(func(): GameManager.creatorManager.unsnap_ghost_block())
-	prevRotation = rotation
+	if GameManager.activeScene == GameManager.SCENE_TYPE.CREATOR:
+		#FUNCTIONALITY FOR SNAPPING GHOST
+		if !isGhost:
+			#myMesh.mouse_entered.connect(func(): GameManager.creatorManager.snap_ghost_block(self))
+			myMesh.mouse_exited.connect(func(): GameManager.creatorManager.unsnap_ghost_block())
+		prevRotation = rotation
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (prevRotation != rotation):
-		update_normals()
-		prevRotation = rotation
+	if GameManager.activeScene == GameManager.SCENE_TYPE.CREATOR:
+		if (prevRotation != rotation):
+			update_normals()
+			prevRotation = rotation
 
 func update_normals():
 	for i in listOfSnapPoints:
@@ -28,8 +30,9 @@ func update_normals():
 
 func unlock_snaps():
 	for i in listOfSnapPoints:
-		if i.snappedTo != null:
+		if i.snappedTo != null and i.isSnapped:
 			i.snappedTo.isSnapped = false
+
 
 #get closest snap point on this block(pass in a global position)
 func get_closest_snap(pos, ignoreSnappedPoints = false):
@@ -42,3 +45,7 @@ func get_closest_snap(pos, ignoreSnappedPoints = false):
 				closestDist = distance
 				closestSnap = snap
 	return closestSnap
+
+func delete():
+	unlock_snaps()
+	queue_free()

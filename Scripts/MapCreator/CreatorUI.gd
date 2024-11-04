@@ -9,13 +9,14 @@ var straight = preload("res://Scenes/MapBuildingBlocks/straight.tscn")
 var curve = preload("res://Scenes/MapBuildingBlocks/curve.tscn")
 var goal = preload("res://Scenes/MapBuildingBlocks/goal_square.tscn")
 var rampD = preload("res://Scenes/MapBuildingBlocks/ramp_d_long.tscn")
-var helixLeft = preload("res://Scenes/MapBuildingBlocks/helix_left.tscn")
+#var helixLeft = preload("res://Scenes/MapBuildingBlocks/helix_left.tscn")
 var splitLeft = preload("res://Scenes/MapBuildingBlocks/split_left.tscn")
 var splitRight = preload("res://Scenes/MapBuildingBlocks/split_right.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.currentUI = self
 	optionButton.item_selected.connect(input)
 
 # Called every frame. 'delta' is the end lapsed time since the previous frame.

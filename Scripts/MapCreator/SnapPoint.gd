@@ -9,14 +9,15 @@ var snappedTo : Node3D
 func snap(snapPoint):
 	snappedTo = snapPoint
 	snapPoint.snappedTo = self
-	isSnapped = true
-	snapPoint.isSnapped = true
+	isSnapped = !parent.isGhost
+	snapPoint.isSnapped = !parent.isGhost
 	#if the snappingPoints normal is NOT the opposite of this normal then rotate the block
 	if -normal != snapPoint.normal: 
 		var rotateAmount = (Vector2(snapPoint.normal.x, snapPoint.normal.z)).angle_to(-Vector2(normal.x, normal.z))
 		#convert all angles to positive 
 		parent.rotation = Vector3(0, rotateAmount, 0)
-		GameManager.creatorManager.rotate_ghost_block(rotateAmount)
+		if parent.isGhost:
+			GameManager.creatorManager.rotate_ghost_block(rotateAmount)
 		
 	#FUNCTIONALITY FOR SNAPPING GHOST
 	if parent.isGhost:

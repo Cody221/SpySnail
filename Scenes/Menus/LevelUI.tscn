@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://m2pdr5v00uwe"]
+[gd_scene load_steps=5 format=3 uid="uid://m2pdr5v00uwe"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/LevelUIController.gd" id="1_cvxgr"]
 [ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_ka0o4"]
+[ext_resource type="Texture2D" uid="uid://bmadxh2nar3f8" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_border.png" id="3_o864f"]
+[ext_resource type="Texture2D" uid="uid://762yb0f57l7n" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_gradient.png" id="4_5ypai"]
 
 [node name="UI" type="MarginContainer"]
 anchors_preset = 15
@@ -56,3 +58,20 @@ layout_mode = 2
 theme = ExtResource("1_ka0o4")
 text = "Return
 "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ka0o4")
+max_value = 10.0
+step = 0.1
+texture_under = ExtResource("3_o864f")
+texture_progress = ExtResource("4_5ypai")
