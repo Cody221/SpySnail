@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://jdmhbyexapqd"]
+
+[ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_y8jew"]
+[ext_resource type="Script" path="res://Scripts/Menu/TestingUIController.gd" id="2_l0yjr"]
+[ext_resource type="Texture2D" uid="uid://bmadxh2nar3f8" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_border.png" id="4_2yhnm"]
+[ext_resource type="Texture2D" uid="uid://762yb0f57l7n" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_gradient.png" id="5_qw3ea"]
+
+[node name="UI" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y8jew")
+script = ExtResource("2_l0yjr")
+
+[node name="SummaryWindow" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SummaryWindow"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SummaryWindow/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_y8jew")
+text = "Joe mama"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="RestartButton" type="Button" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_y8jew")
+text = "Restart"
+
+[node name="ReturnButton" type="Button" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_y8jew")
+text = "Return
+"
+
+[node name="PauseMenu" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_y8jew")
+text = "Restart"
+
+[node name="ReturnButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_y8jew")
+text = "Return
+ to 
+testing"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_y8jew")
+max_value = 10.0
+step = 0.1
+texture_under = ExtResource("4_2yhnm")
+texture_progress = ExtResource("5_qw3ea")

@@ -4,4 +4,7 @@ extends Button
 @export var sceneType : GameManager.SCENE_TYPE
 
 func _pressed():
-	GameManager.LoadScene(scenePath, sceneType)
+	if scenePath == null:
+		GameManager.levelManager.Reset()
+	else:
+		GameManager.LoadScene(scenePath, sceneType)

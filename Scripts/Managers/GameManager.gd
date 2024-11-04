@@ -25,10 +25,12 @@ func _process(delta):
 	for manager in activeManagers:
 		manager._process(delta)
 
-func _input(event):
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_ESCAPE:
-			levelManager.Reset()
+func _input(_event):
+	pass
+	#if event is InputEventKey:
+		#if event.pressed and event.keycode == KEY_ESCAPE:
+			#levelManager.Reset()
+			##pass
 
 func LoadScene(scene : String, sceneType):
 	get_tree().change_scene_to_file(scene)

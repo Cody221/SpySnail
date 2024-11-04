@@ -1,19 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1b2g12r6dhbd"]
 
 [ext_resource type="Script" path="res://Scripts/MapCreator/CamControl.gd" id="1_bcyp7"]
+[ext_resource type="Environment" uid="uid://dnn3km3m6qrv5" path="res://cam_environment.tres" id="1_dh2gr"]
 [ext_resource type="PackedScene" uid="uid://b343s11jh253c" path="res://Scenes/Menus/CreatorUI.tscn" id="3_eh5pa"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5di1f"]
-sky_top_color = Color(0.613447, 0.374797, 0.343528, 1)
-sky_horizon_color = Color(0.854912, 0.582856, 0.422469, 1)
-sky_curve = 0.270375
-
-[sub_resource type="Sky" id="Sky_232wr"]
-sky_material = SubResource("ProceduralSkyMaterial_5di1f")
-
-[sub_resource type="Environment" id="Environment_s1fko"]
-background_mode = 2
-sky = SubResource("Sky_232wr")
+[ext_resource type="PackedScene" uid="uid://dev08qkmbx7ac" path="res://Scenes/MapBuildingBlocks/straight.tscn" id="3_p2yx1"]
+[ext_resource type="PackedScene" uid="uid://cu1nry2w4vhae" path="res://Scenes/PlayerBall.tscn" id="3_p8e3u"]
 
 [node name="MapMaker" type="Node3D"]
 
@@ -21,10 +12,18 @@ sky = SubResource("Sky_232wr")
 transform = Transform3D(1, 0, 0, 0, 0.442289, 0.896873, 0, -0.896873, 0.442289, 0, 3.42978, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-environment = SubResource("Environment_s1fko")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+environment = ExtResource("1_dh2gr")
 script = ExtResource("1_bcyp7")
 
 [node name="UI" parent="." instance=ExtResource("3_eh5pa")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Map" type="Node3D" parent="."]
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Map" type="Node3D" parent="Level"]
+
+[node name="Straight" parent="Level/Map" instance=ExtResource("3_p2yx1")]
+
+[node name="PlayerBall" parent="Level" instance=ExtResource("3_p8e3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

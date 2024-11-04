@@ -1,6 +1,8 @@
 extends MarginContainer
 
 @onready var optionButton = $HBoxContainer/VBoxContainer/OptionButton
+@onready var deleteButton = $HBoxContainer/VBoxContainer/DeleteButton
+@onready var pauseMenu = $PauseMenu
 var selectedOption = null
 
 #preloading all the blocks for instantiation
@@ -18,33 +20,41 @@ var splitRight = preload("res://Scenes/MapBuildingBlocks/split_right.tscn")
 func _ready():
 	GameManager.currentUI = self
 	optionButton.item_selected.connect(input)
+	deleteButton.toggled.connect(func(x): GameManager.creatorManager.deleting = x)
 
 # Called every frame. 'delta' is the end lapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("Pause"):
+		pauseMenu.show()
 
 func input(choice):
 	match choice:
-		0:#Start
-			selectedOption = playerBall
-			#GameManager.creatorManager.add_ghost_block()
-		1:#Finish
+		#0:#Start
+			#selectedOption = playerBall
+			#GameManager.creatorManager.placingStart = true
+		0:#Finish
 			selectedOption = goal
 			GameManager.creatorManager.add_ghost_block()
-		2:#straight
+			GameManager.creatorManager.snapIndex = 0
+		1:#straight
 			selectedOption = straight
 			GameManager.creatorManager.add_ghost_block()
-		3:#Curve
+			GameManager.creatorManager.snapIndex = 0
+		2:#Curve
 			selectedOption = curve
 			GameManager.creatorManager.add_ghost_block()
-		4:#Steep Ramp
+			GameManager.creatorManager.snapIndex = 0
+		3:#Steep Ramp
 			selectedOption = rampD
 			GameManager.creatorManager.add_ghost_block()
-		5:
+			GameManager.creatorManager.snapIndex = 0
+		4:
 			selectedOption = splitLeft
 			GameManager.creatorManager.add_ghost_block()
-		6:
+			GameManager.creatorManager.snapIndex = 0
+		5:
 			selectedOption = splitRight
 			GameManager.creatorManager.add_ghost_block()
+			GameManager.creatorManager.snapIndex = 0
 		_:
 			selectedOption = null

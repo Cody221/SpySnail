@@ -16,6 +16,10 @@ var jumpForce : float
 var drawArrow
 
 func _ready():
+	if GameManager.activeScene == GameManager.SCENE_TYPE.CREATOR:
+		set_process(false)
+		GameManager.creatorManager.play_testing.connect(start_ball)
+	
 	drawArrow = DebugArrow.new(self, drawDirection)
 
 func _process(delta):
@@ -23,7 +27,10 @@ func _process(delta):
 	handle_input(delta)
 	
 	if position.y <= -40:
-		GameManager.Reset()
+		GameManager.levelManager.Reset()
+
+func start_ball():
+	set_process(true)
 
 func handle_input(delta):
 	if(Input.is_action_just_pressed("LeftMouse")):

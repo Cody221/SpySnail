@@ -5,10 +5,13 @@ class_name CreatorManager extends Node
 var UI
 var map
 var cam
+var level
 
-var useSnap1 = true
 var snapIndex = 0
 var ghostBlock
+
+var deleting
+signal play_testing
 
 func _init():
 	pass
@@ -21,9 +24,6 @@ func _process(_delta):
 		else:
 			snap_ghost_block(res.collider.get_parent(), res.position)
 			ghostBlock.snappedGhost = true
-	
-	if Input.is_action_just_pressed("Jump"):
-		export_map()
 	
 	if Input.is_action_just_pressed("Key_R"):
 		snapIndex += 1
@@ -67,8 +67,9 @@ func snap_ghost_block(block, mousePos):
 	snap_blocks(block, ghostBlock, mousePos)
 
 func unsnap_ghost_block():
-	ghostBlock.snappedGhost = false
-	ghostBlock.unlock_snaps()
+	if ghostBlock:
+		ghostBlock.snappedGhost = false
+		ghostBlock.unlock_snaps()
 
 #adds block to map
 func add_block(mPos):
@@ -80,6 +81,7 @@ func add_block(mPos):
 	map.add_child(node)
 	#need to raycast from the mouse
 	var res = raycast_from_mouse(mPos, 1)
+	
 	#if it didn't hit anything it will be a vector3 
 	if typeof(res) == TYPE_VECTOR3:
 		# -1 is the last child added
@@ -120,9 +122,30 @@ func snap_blocks(block1, block2, collisionPos = null):
 		block2Snaps[snapIndex].snap(closestSnap)
 
 func export_map():
+	#ghostBlock.queue_free()
 	var save = PackedScene.new()
-	for i in map.get_children():
-		i.set_owner(map)
+	var testingUI = preload("res://Scenes/Menus/TestingUI.tscn").instantiate()
+	level.add_child(testingUI)
+	var light = DirectionalLight3D.new()
+	light.rotation = Vector3(-PI/2, 0, 0)
+	level.add_child(light)
 	
-	save.pack(map)
+	var all_children = get_all_children(level)
+	for i in all_children:
+		i.set_owner(level)
+	
+	save.pack(level)
 	ResourceSaver.save(save, "res://newMap.tscn")
+
+#https://forum.godotengine.org/t/how-to-get-all-children-from-a-node/18587/2
+func get_all_children(node, arr:=[]):
+	arr.push_back(node)
+	for child in node.get_children():
+		arr = get_all_children(child, arr)
+	return arr 
+
+func delete(mPos):
+	var res = raycast_from_mouse(mPos, 1)
+	if typeof(res) == TYPE_VECTOR3:
+		return
+	res.collider.get_parent().delete()

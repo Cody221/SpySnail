@@ -12,6 +12,8 @@
 
 [node name="Node3D" type="Node3D"]
 
+[node name="UI" parent="." instance=ExtResource("9_h70w5")]
+
 [node name="PlayerBall" parent="." instance=ExtResource("8_jerxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
 
@@ -48,5 +50,3 @@ otherTP = NodePath("../PortArea")
 
 [node name="end-square2" parent="." instance=ExtResource("8_7gory")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83672)
-
-[node name="UI" parent="." instance=ExtResource("9_h70w5")]

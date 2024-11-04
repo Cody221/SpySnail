@@ -5,9 +5,10 @@ extends Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameManager.creatorManager.map = $"../Map"
+	GameManager.creatorManager.map = $"../Level/Map"
 	GameManager.creatorManager.UI = $"../UI"
 	GameManager.creatorManager.cam = self
+	GameManager.creatorManager.level = $"../Level"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,7 +29,10 @@ func _unhandled_input(event):
 				rotation_degrees.x -= event.relative.y * mouseSens
 			
 	if(Input.is_action_just_released("LeftMouse")):
-		GameManager.creatorManager.add_block(event.position)
+		if GameManager.creatorManager.deleting:
+			GameManager.creatorManager.delete(event.position)
+		else:
+			GameManager.creatorManager.add_block(event.position)
 	
 	#show the mouse on release
 	if(Input.is_action_just_released("RightMouse")):

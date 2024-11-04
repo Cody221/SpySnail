@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b343s11jh253c"]
+[gd_scene load_steps=6 format=3 uid="uid://b343s11jh253c"]
 
 [ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_atw6y"]
 [ext_resource type="Script" path="res://Scripts/MapCreator/CreatorUI.gd" id="2_3rqmt"]
+[ext_resource type="Script" path="res://Scripts/Menu/PlayTestButton.gd" id="3_iy3d4"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuChangeButton.gd" id="4_bsn60"]
+[ext_resource type="Script" path="res://Scripts/Menu/SceneChangeButton.gd" id="5_tlrnx"]
 
 [node name="UI" type="MarginContainer"]
 anchors_preset = 15
@@ -21,18 +24,53 @@ layout_mode = 2
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-item_count = 7
-popup/item_0/text = "Start"
+item_count = 6
+popup/item_0/text = "Finish"
 popup/item_0/id = 0
-popup/item_1/text = "Finish"
+popup/item_1/text = "Straight"
 popup/item_1/id = 1
-popup/item_2/text = "Straight"
+popup/item_2/text = "Curve"
 popup/item_2/id = 2
-popup/item_3/text = "Curve"
+popup/item_3/text = "Steep Ramp"
 popup/item_3/id = 3
-popup/item_4/text = "Steep Ramp"
+popup/item_4/text = "Split Left"
 popup/item_4/id = 4
-popup/item_5/text = "Split Left"
+popup/item_5/text = "Split Right"
 popup/item_5/id = 5
-popup/item_6/text = "Split Right"
-popup/item_6/id = 6
+
+[node name="DeleteButton" type="CheckButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "delete"
+
+[node name="PauseMenu" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="PlayTestButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_atw6y")
+text = "Test"
+script = ExtResource("3_iy3d4")
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("menuToHide", "menuToShow")]
+layout_mode = 2
+theme = ExtResource("1_atw6y")
+text = "Resume"
+script = ExtResource("4_bsn60")
+menuToHide = NodePath("../../..")
+menuToShow = NodePath("../../../../HBoxContainer")
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_atw6y")
+text = "main menu"
+script = ExtResource("5_tlrnx")
+scenePath = "res://Scenes/Menus/MainMenu.tscn"

@@ -101,6 +101,7 @@ sceneType = 2
 [node name="LoadMapButton" type="Button" parent="CreatorGrid"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
+disabled = true
 text = "Load map"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/MapMaker.tscn"
