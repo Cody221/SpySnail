@@ -22,6 +22,9 @@ func _process(_delta):
 			snap_ghost_block(res.collider.get_parent(), res.position)
 			ghostBlock.snappedGhost = true
 	
+	if Input.is_action_just_pressed("Jump"):
+		export_map()
+	
 	if Input.is_action_just_pressed("Key_R"):
 		snapIndex += 1
 		if snapIndex >= ghostBlock.listOfSnapPoints.size():
@@ -115,3 +118,11 @@ func snap_blocks(block1, block2, collisionPos = null):
 	#closestSnap will be null if all snap points are taken already 
 	if closestSnap != null:
 		block2Snaps[snapIndex].snap(closestSnap)
+
+func export_map():
+	var save = PackedScene.new()
+	for i in map.get_children():
+		i.set_owner(map)
+	
+	save.pack(map)
+	ResourceSaver.save(save, "res://newMap.tscn")
