@@ -13,12 +13,15 @@ var activeManagers = []
 #active scene type
 var activeScene : SCENE_TYPE
 
+var importedMap
+
 func _ready():
 	#fullscreen 
-	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	#manager instantiation
 	levelManager = LevelManager.new()
 	creatorManager = CreatorManager.new()
+	pass
 
 func _process(delta):
 	#manager processing
@@ -36,15 +39,23 @@ func LoadScene(scene : String, sceneType):
 	get_tree().change_scene_to_file(scene)
 	
 	#every time a new scene is loaded it should unload the nonrequierd managers and load the required ones 
+	#for manager in activeManagers:
+		#manager.queue_free()
 	activeManagers = []
 	
 	match sceneType:
 		SCENE_TYPE.MENU:
 			activeScene = SCENE_TYPE.MENU
 		SCENE_TYPE.LEVEL:
+			levelManager = LevelManager.new()
 			activeManagers.append(levelManager)
 			debugLayer = DebugLayer.new()
 			activeScene = SCENE_TYPE.LEVEL
 		SCENE_TYPE.CREATOR:
+			creatorManager = CreatorManager.new()
 			activeManagers.append(creatorManager)
 			activeScene = SCENE_TYPE.CREATOR
+	
+	
+	
+	

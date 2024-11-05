@@ -5,10 +5,17 @@ extends Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.creatorManager.root = get_parent()
 	GameManager.creatorManager.map = $"../Level/Map"
 	GameManager.creatorManager.UI = $"../UI"
 	GameManager.creatorManager.cam = self
-	GameManager.creatorManager.level = $"../Level"
+	if GameManager.importedMap == null:
+		GameManager.creatorManager.level = $"../Level"
+	else:
+		var node = $"../Level"
+		node.get_parent().call_deferred("add_child",GameManager.importedMap)
+		node.queue_free()
+		#GameManager.creatorManager.level = GameManager.importedMap
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,55 +1,24 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="PackedScene" path="res://Scenes/MapBuildingBlocks/straight.tscn" id="1_7tcnf"]
-[ext_resource type="ArrayMesh" path="res://Assets/OBJ format/straight.obj" id="2_v28qw"]
-[ext_resource type="Script" path="res://Scripts/MapCreator/SnapPointContainer.gd" id="3_svknf"]
-[ext_resource type="Script" path="res://Scripts/MapCreator/SnapPoint.gd" id="4_lcy31"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerBall.tscn" id="5_7rw2x"]
-[ext_resource type="Script" path="res://Scripts/Player/BallMovement.gd" id="6_w6hxx"]
-[ext_resource type="ArrayMesh" path="res://Assets/OBJ format/marble-center-butterfly-high.obj" id="7_i75th"]
-[ext_resource type="Script" path="res://Scripts/Player/Gimbal.gd" id="8_u1yue"]
-[ext_resource type="Environment" path="res://cam_environment.tres" id="9_dx1ut"]
-[ext_resource type="Script" path="res://3DArrow.gd" id="10_50t27"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/TestingUI.tscn" id="11_o3aay"]
-[ext_resource type="Theme" path="res://the_theme.tres" id="12_4tha8"]
-[ext_resource type="Script" path="res://Scripts/Menu/TestingUIController.gd" id="13_snhsy"]
-[ext_resource type="Texture2D" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_border.png" id="14_lllmu"]
-[ext_resource type="Texture2D" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_gradient.png" id="15_00bal"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s0x4o"]
-data = PackedVector3Array(0.5, 0, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.2875, 0.3125, -0.5, -0.35, 0.5, -0.5, -0.5, 0, -0.5, -0.2875, 0.3125, -0.5, -0.5, 0.5, -0.5, -0.2875, 0.3125, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.2875, 0.3125, -0.5, 0.5, 0, -0.5, -0.1, 0.25, -0.5, 0.5, 0, -0.5, 0.1, 0.25, -0.5, -0.1, 0.25, -0.5, 0.5, 0, -0.5, 0.2875, 0.3125, -0.5, 0.1, 0.25, -0.5, 0.2875, 0.3125, -0.5, 0.5, 0, -0.5, 0.5, 0.5, -0.5, 0.2875, 0.3125, -0.5, 0.5, 0.5, -0.5, 0.35, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.35, 0.5, -0.5, 0.5, 0.5, -0.5, 0.35, 0.5, -0.5, 0.5, 0.5, 0.5, 0.35, 0.5, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.35, 0.5, 0.5, -0.5, 0.5, -0.5, -0.35, 0.5, -0.5, -0.5, 0.5, -0.5, -0.35, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.2875, 0.3125, 0.5, 0.35, 0.5, 0.5, 0.5, 0, 0.5, 0.2875, 0.3125, 0.5, 0.5, 0.5, 0.5, 0.2875, 0.3125, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.2875, 0.3125, 0.5, -0.5, 0, 0.5, 0.1, 0.25, 0.5, -0.5, 0, 0.5, -0.1, 0.25, 0.5, 0.1, 0.25, 0.5, -0.5, 0, 0.5, -0.2875, 0.3125, 0.5, -0.1, 0.25, 0.5, -0.2875, 0.3125, 0.5, -0.5, 0, 0.5, -0.5, 0.5, 0.5, -0.2875, 0.3125, 0.5, -0.5, 0.5, 0.5, -0.35, 0.5, 0.5, 0.2875, 0.3125, 0.5, 0.1, 0.25, -0.5, 0.2875, 0.3125, -0.5, 0.1, 0.25, -0.5, 0.2875, 0.3125, 0.5, 0.1, 0.25, 0.5, 0.1, 0.25, 0.5, -0.1, 0.25, -0.5, 0.1, 0.25, -0.5, -0.1, 0.25, -0.5, 0.1, 0.25, 0.5, -0.1, 0.25, 0.5, -0.1, 0.25, 0.5, -0.2875, 0.3125, -0.5, -0.1, 0.25, -0.5, -0.2875, 0.3125, -0.5, -0.1, 0.25, 0.5, -0.2875, 0.3125, 0.5, -0.2875, 0.3125, -0.5, -0.35, 0.5, 0.5, -0.35, 0.5, -0.5, -0.35, 0.5, 0.5, -0.2875, 0.3125, -0.5, -0.2875, 0.3125, 0.5, 0.35, 0.5, -0.5, 0.2875, 0.3125, 0.5, 0.2875, 0.3125, -0.5, 0.2875, 0.3125, 0.5, 0.35, 0.5, -0.5, 0.35, 0.5, 0.5, 0.5, 0, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.2875, 0.3125, -0.5, -0.35, 0.5, -0.5, -0.5, 0, -0.5, -0.2875, 0.3125, -0.5, -0.5, 0.5, -0.5, -0.2875, 0.3125, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.2875, 0.3125, -0.5, 0.5, 0, -0.5, -0.1, 0.25, -0.5, 0.5, 0, -0.5, 0.1, 0.25, -0.5, -0.1, 0.25, -0.5, 0.5, 0, -0.5, 0.2875, 0.3125, -0.5, 0.1, 0.25, -0.5, 0.2875, 0.3125, -0.5, 0.5, 0, -0.5, 0.5, 0.5, -0.5, 0.2875, 0.3125, -0.5, 0.5, 0.5, -0.5, 0.35, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.35, 0.5, -0.5, 0.5, 0.5, -0.5, 0.35, 0.5, -0.5, 0.5, 0.5, 0.5, 0.35, 0.5, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.35, 0.5, 0.5, -0.5, 0.5, -0.5, -0.35, 0.5, -0.5, -0.5, 0.5, -0.5, -0.35, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.2875, 0.3125, 0.5, 0.35, 0.5, 0.5, 0.5, 0, 0.5, 0.2875, 0.3125, 0.5, 0.5, 0.5, 0.5, 0.2875, 0.3125, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.2875, 0.3125, 0.5, -0.5, 0, 0.5, 0.1, 0.25, 0.5, -0.5, 0, 0.5, -0.1, 0.25, 0.5, 0.1, 0.25, 0.5, -0.5, 0, 0.5, -0.2875, 0.3125, 0.5, -0.1, 0.25, 0.5, -0.2875, 0.3125, 0.5, -0.5, 0, 0.5, -0.5, 0.5, 0.5, -0.2875, 0.3125, 0.5, -0.5, 0.5, 0.5, -0.35, 0.5, 0.5, 0.2875, 0.3125, 0.5, 0.1, 0.25, -0.5, 0.2875, 0.3125, -0.5, 0.1, 0.25, -0.5, 0.2875, 0.3125, 0.5, 0.1, 0.25, 0.5, 0.1, 0.25, 0.5, -0.1, 0.25, -0.5, 0.1, 0.25, -0.5, -0.1, 0.25, -0.5, 0.1, 0.25, 0.5, -0.1, 0.25, 0.5, -0.1, 0.25, 0.5, -0.2875, 0.3125, -0.5, -0.1, 0.25, -0.5, -0.2875, 0.3125, -0.5, -0.1, 0.25, 0.5, -0.2875, 0.3125, 0.5, -0.2875, 0.3125, -0.5, -0.35, 0.5, 0.5, -0.35, 0.5, -0.5, -0.35, 0.5, 0.5, -0.2875, 0.3125, -0.5, -0.2875, 0.3125, 0.5, 0.35, 0.5, -0.5, 0.2875, 0.3125, 0.5, 0.2875, 0.3125, -0.5, 0.2875, 0.3125, 0.5, 0.35, 0.5, -0.5, 0.35, 0.5, 0.5)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_pska4"]
-top_radius = 0.01
-bottom_radius = 0.08
-height = 0.0
-cap_top = false
+[ext_resource type="PackedScene" path="res://Scenes/MapBuildingBlocks/straight.tscn" id="1_br8xg"]
+[ext_resource type="ArrayMesh" path="res://Assets/OBJ format/straight.obj" id="2_bhiof"]
+[ext_resource type="Script" path="res://Scripts/MapCreator/SnapPointContainer.gd" id="3_aw5fd"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerBall.tscn" id="4_xqlpl"]
+[ext_resource type="Script" path="res://Scripts/Player/BallMovement.gd" id="5_6a3wn"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/TestingUI.tscn" id="6_y81dm"]
+[ext_resource type="Theme" path="res://the_theme.tres" id="7_cbk87"]
+[ext_resource type="Script" path="res://Scripts/Menu/TestingUIController.gd" id="8_4end5"]
 
 [node name="Level" type="Node3D"]
 
 [node name="Map" type="Node3D" parent="."]
 
-[node name="Straight" type="MeshInstance3D" parent="Map" node_paths=PackedStringArray("listOfSnapPoints") instance=ExtResource("1_7tcnf")]
-mesh = ExtResource("2_v28qw")
-script = ExtResource("3_svknf")
+[node name="Straight" type="MeshInstance3D" parent="Map" node_paths=PackedStringArray("listOfSnapPoints") instance=ExtResource("1_br8xg")]
+mesh = ExtResource("2_bhiof")
+script = ExtResource("3_aw5fd")
 listOfSnapPoints = [NodePath("SnapPoint"), NodePath("SnapPoint2")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Straight"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Straight/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0x4o")
-
-[node name="SnapPoint" type="Node3D" parent="Map/Straight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-script = ExtResource("4_lcy31")
-
-[node name="SnapPoint2" type="Node3D" parent="Map/Straight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-script = ExtResource("4_lcy31")
-
-[node name="PlayerBall" type="RigidBody3D" parent="." instance=ExtResource("5_7rw2x")]
+[node name="PlayerBall" type="RigidBody3D" parent="." instance=ExtResource("4_xqlpl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439264, 0)
 collision_layer = 2
 collision_mask = 3
@@ -57,118 +26,17 @@ collision_priority = 10.0
 input_ray_pickable = false
 sleeping = true
 linear_velocity = Vector3(0, 2.08616e-06, 0)
-script = ExtResource("6_w6hxx")
+script = ExtResource("5_6a3wn")
 numberOfJumps = 1
 
-[node name="Marble-center-butterfly-high" type="MeshInstance3D" parent="PlayerBall"]
-mesh = ExtResource("7_i75th")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBall"]
-transform = Transform3D(0.398531, 0, 0, 0, 0.398531, 0, 0, 0, 0.398531, 0, 0, 0)
-shape = SubResource("SphereShape3D_8bp8f")
-
-[node name="YGimbal" type="Node3D" parent="PlayerBall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439264, 0)
-top_level = true
-script = ExtResource("8_u1yue")
-mouseSens = 0.005
-
-[node name="XGimbal" type="Node3D" parent="PlayerBall/YGimbal"]
-
-[node name="SpringArm3D" type="SpringArm3D" parent="PlayerBall/YGimbal/XGimbal"]
-spring_length = 2.0
-margin = 0.05
-
-[node name="Camera3D" type="Camera3D" parent="PlayerBall/YGimbal/XGimbal/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-environment = ExtResource("9_dx1ut")
-
-[node name="@MeshInstance3D@8" type="MeshInstance3D" parent="PlayerBall"]
-transform = Transform3D(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.439264, 0)
-top_level = true
-mesh = SubResource("CylinderMesh_pska4")
-script = ExtResource("10_50t27")
-
-[node name="UI" type="MarginContainer" parent="." instance=ExtResource("11_o3aay")]
+[node name="UI" type="MarginContainer" parent="." instance=ExtResource("6_y81dm")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("12_4tha8")
-script = ExtResource("13_snhsy")
-
-[node name="SummaryWindow" type="MarginContainer" parent="UI"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SummaryWindow"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SummaryWindow/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/SummaryWindow/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("12_4tha8")
-text = "Joe mama"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="RestartButton" type="Button" parent="UI/SummaryWindow/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("12_4tha8")
-text = "Restart"
-
-[node name="ReturnButton" type="Button" parent="UI/SummaryWindow/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("12_4tha8")
-text = "Return
-"
-
-[node name="PauseMenu" type="MarginContainer" parent="UI"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseMenu"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu/HBoxContainer"]
-layout_mode = 2
-
-[node name="RestartButton" type="Button" parent="UI/PauseMenu/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("12_4tha8")
-text = "Restart"
-
-[node name="ReturnButton" type="Button" parent="UI/PauseMenu/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("12_4tha8")
-text = "Return
- to 
-testing"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI"]
-layout_mode = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 8
-alignment = 1
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/HBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("12_4tha8")
-max_value = 10.0
-step = 0.1
-texture_under = ExtResource("14_lllmu")
-texture_progress = ExtResource("15_00bal")
+theme = ExtResource("7_cbk87")
+script = ExtResource("8_4end5")
 
 [node name="@DirectionalLight3D@9" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

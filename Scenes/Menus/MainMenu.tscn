@@ -61,6 +61,7 @@ theme = ExtResource("1_x54d6")
 layout_mode = 2
 theme = ExtResource("1_x54d6")
 theme_override_font_sizes/font_size = 20
+disabled = true
 text = "Test"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/Test.tscn"

@@ -17,9 +17,9 @@ var drawArrow
 
 func _ready():
 	if GameManager.activeScene == GameManager.SCENE_TYPE.CREATOR:
+		sleeping = true
 		set_process(false)
 		GameManager.creatorManager.play_testing.connect(start_ball)
-	
 	drawArrow = DebugArrow.new(self, drawDirection)
 
 func _process(delta):

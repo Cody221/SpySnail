@@ -2,6 +2,7 @@ class_name CreatorManager extends Node
 
 #references to respective nodes in mapmaker scene
 #instantiated in CamControl.gd
+var root
 var UI
 var map
 var cam
@@ -17,7 +18,7 @@ func _init():
 	pass
 
 func _process(_delta):
-	if ghostBlock:
+	if ghostBlock != null:
 		var res = raycast_from_mouse(cam.get_viewport().get_mouse_position(),1)
 		if typeof(res) == TYPE_VECTOR3:
 			ghostBlock.position = res
@@ -49,7 +50,7 @@ func add_ghost_block():
 		node.transparency = 0.9
 		node.find_child("StaticBody3D").set_collision_layer(0)
 		#add node
-		map.add_sibling(node)
+		level.add_sibling(node)
 		ghostBlock = node
 
 func rotate_ghost_block(angle):
@@ -78,9 +79,9 @@ func add_block(mPos):
 		return
 	#instantiate the node and add block as a child of the map
 	var node = UI.selectedOption.instantiate()
+	var res = raycast_from_mouse(mPos, 1)
 	map.add_child(node)
 	#need to raycast from the mouse
-	var res = raycast_from_mouse(mPos, 1)
 	
 	#if it didn't hit anything it will be a vector3 
 	if typeof(res) == TYPE_VECTOR3:
@@ -120,9 +121,17 @@ func snap_blocks(block1, block2, collisionPos = null):
 	#closestSnap will be null if all snap points are taken already 
 	if closestSnap != null:
 		block2Snaps[snapIndex].snap(closestSnap)
+	elif !block2.isGhost:
+		map.get_child(-1).free()
+
+func import_map():
+	var newLevel = load("res://newMap.tscn").instantiate()
+	#remove the last two children because they are the added UI and lighting
+	newLevel.get_child(-1).free()
+	newLevel.get_child(-1).free()
+	GameManager.importedMap = newLevel
 
 func export_map():
-	#ghostBlock.queue_free()
 	var save = PackedScene.new()
 	var testingUI = preload("res://Scenes/Menus/TestingUI.tscn").instantiate()
 	level.add_child(testingUI)
@@ -130,9 +139,15 @@ func export_map():
 	light.rotation = Vector3(-PI/2, 0, 0)
 	level.add_child(light)
 	
-	var all_children = get_all_children(level)
-	for i in all_children:
-		i.set_owner(level)
+	for child in map.get_children():
+		child.set_owner(level)
+	
+	for child in level.get_children():
+		child.set_owner(level)
+		
+	#var all_children = get_all_children(level)
+	#for i in all_children:
+		#i.set_owner(level)
 	
 	save.pack(level)
 	ResourceSaver.save(save, "res://newMap.tscn")
@@ -149,3 +164,4 @@ func delete(mPos):
 	if typeof(res) == TYPE_VECTOR3:
 		return
 	res.collider.get_parent().delete()
+
