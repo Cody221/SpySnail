@@ -21,10 +21,19 @@ func _process(_delta):
 	if ghostBlock != null:
 		var res = raycast_from_mouse(cam.get_viewport().get_mouse_position(),1)
 		if typeof(res) == TYPE_VECTOR3:
-			ghostBlock.position = res
+			if ghostBlock.snappedGhost == true:
+				#make it invisible and reset it to default
+				ghostBlock.visible = false
+				ghostBlock.snappedGhost = false
+				ghostBlock.position = Vector3.ZERO
+				ghostBlock.rotation = Vector3.ZERO
+				for snap in ghostBlock.listOfSnapPoints:
+					snap.set_normal()
 		else:
-			snap_ghost_block(res.collider.get_parent(), res.position)
-			ghostBlock.snappedGhost = true
+			if ghostBlock.snappedGhost == false or ghostBlock.position == Vector3.ZERO:
+				ghostBlock.visible = true
+				ghostBlock.snappedGhost = true
+				snap_blocks(res.collider.get_parent(), ghostBlock, res.position)
 	
 	if Input.is_action_just_pressed("Key_R"):
 		snapIndex += 1
@@ -144,20 +153,16 @@ func export_map():
 	
 	for child in level.get_children():
 		child.set_owner(level)
-		
-	#var all_children = get_all_children(level)
-	#for i in all_children:
-		#i.set_owner(level)
 	
 	save.pack(level)
 	ResourceSaver.save(save, "res://newMap.tscn")
 
 #https://forum.godotengine.org/t/how-to-get-all-children-from-a-node/18587/2
-func get_all_children(node, arr:=[]):
-	arr.push_back(node)
-	for child in node.get_children():
-		arr = get_all_children(child, arr)
-	return arr 
+#func get_all_children(node, arr:=[]):
+	#arr.push_back(node)
+	#for child in node.get_children():
+		#arr = get_all_children(child, arr)
+	#return arr 
 
 func delete(mPos):
 	var res = raycast_from_mouse(mPos, 1)

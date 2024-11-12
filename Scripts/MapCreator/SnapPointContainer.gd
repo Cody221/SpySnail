@@ -36,7 +36,7 @@ func unlock_snaps():
 
 #get closest snap point on this block(pass in a global position)
 func get_closest_snap(pos, ignoreSnappedPoints = false):
-	var closestDist = 99.9
+	var closestDist = 999.9
 	var closestSnap
 	for snap in listOfSnapPoints:
 		if !snap.isSnapped and !ignoreSnappedPoints:
