@@ -17,7 +17,7 @@ var importedMap
 
 func _ready():
 	#fullscreen 
-	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	#manager instantiation
 	levelManager = LevelManager.new()
 	creatorManager = CreatorManager.new()

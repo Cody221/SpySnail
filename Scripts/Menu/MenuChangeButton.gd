@@ -5,5 +5,6 @@ extends Button
 
 func _pressed():
 	menuToHide.hide()
-	menuToShow.show()
+	if menuToShow != null:
+		menuToShow.show()
 

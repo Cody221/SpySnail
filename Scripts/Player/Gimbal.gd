@@ -12,7 +12,7 @@ var invertX = false
 
 func _process(_delta):
 	global_position = get_parent().global_position
-	inner.rotation.x = clamp(inner.rotation.x, -1.4, 1.4)
+	inner.rotation.x = clamp(inner.rotation.x, -1, 1.4)
 
 func _unhandled_input(event):
 	if (event is InputEventMouseButton):

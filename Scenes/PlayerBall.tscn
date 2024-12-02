@@ -1,11 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu1nry2w4vhae"]
+[gd_scene load_steps=7 format=3 uid="uid://cu1nry2w4vhae"]
 
 [ext_resource type="Script" path="res://Scripts/Player/BallMovement.gd" id="1_r58s5"]
 [ext_resource type="ArrayMesh" uid="uid://3jybwf3fx2ex" path="res://Assets/OBJ format/marble-center-butterfly-high.obj" id="2_lrpdv"]
 [ext_resource type="Script" path="res://Scripts/Player/Gimbal.gd" id="3_651xr"]
-[ext_resource type="Environment" uid="uid://dnn3km3m6qrv5" path="res://cam_environment.tres" id="4_mvdra"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8bp8f"]
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_5hvvy"]
+radius = 0.05
+radial_steps = 10
+sections = 2
+cap_top = false
+
+[sub_resource type="PrismMesh" id="PrismMesh_by0ui"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="PlayerBall" type="RigidBody3D"]
 collision_layer = 2
@@ -29,8 +37,18 @@ script = ExtResource("3_651xr")
 [node name="XGimbal" type="Node3D" parent="YGimbal"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="YGimbal/XGimbal"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
 spring_length = 2.0
 margin = 0.05
 
 [node name="Camera3D" type="Camera3D" parent="YGimbal/XGimbal/SpringArm3D"]
-environment = ExtResource("4_mvdra")
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+top_level = true
+visible = false
+mesh = SubResource("TubeTrailMesh_5hvvy")
+
+[node name="Head" type="MeshInstance3D" parent="Arrow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.248176, 0)
+mesh = SubResource("PrismMesh_by0ui")

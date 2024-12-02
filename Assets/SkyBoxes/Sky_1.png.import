@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0adfw175in1"
-path.s3tc="res://.godot/imported/star.png-8842a8fa8d06189689fed480556bc83c.s3tc.ctex"
+uid="uid://dhrb5kdt38uqu"
+path.bptc="res://.godot/imported/Sky_1.png-c9f19eab11abc63fefbcbc165f1ea618.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textues/PNG/Green/Default/star.png"
-dest_files=["res://.godot/imported/star.png-8842a8fa8d06189689fed480556bc83c.s3tc.ctex"]
+source_file="res://Assets/SkyBoxes/Sky_1.png"
+dest_files=["res://.godot/imported/Sky_1.png-c9f19eab11abc63fefbcbc165f1ea618.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

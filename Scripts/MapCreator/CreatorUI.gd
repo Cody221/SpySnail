@@ -14,6 +14,11 @@ var rampD = preload("res://Scenes/MapBuildingBlocks/ramp_d_long.tscn")
 #var helixLeft = preload("res://Scenes/MapBuildingBlocks/helix_left.tscn")
 var splitLeft = preload("res://Scenes/MapBuildingBlocks/split_left.tscn")
 var splitRight = preload("res://Scenes/MapBuildingBlocks/split_right.tscn")
+var splitBoth = preload("res://Scenes/MapBuildingBlocks/split_double_sides.tscn")
+var rampStart = preload("res://Scenes/MapBuildingBlocks/ramp_start_d.tscn")
+var slantLong = preload("res://Scenes/MapBuildingBlocks/slant_long_d.tscn")
+var fan = preload("res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/fan_four.tscn")
+#var tp = preload("res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,5 +61,25 @@ func input(choice):
 			selectedOption = splitRight
 			GameManager.creatorManager.add_ghost_block()
 			GameManager.creatorManager.snapIndex = 0
+		6:
+			selectedOption = rampStart
+			GameManager.creatorManager.add_ghost_block()
+			GameManager.creatorManager.snapIndex = 0
+		7:
+			selectedOption = slantLong
+			GameManager.creatorManager.add_ghost_block()
+			GameManager.creatorManager.snapIndex = 0
+		8:
+			selectedOption = splitBoth
+			GameManager.creatorManager.add_ghost_block()
+			GameManager.creatorManager.snapIndex = 0
+		10:
+			selectedOption = fan
+			GameManager.creatorManager.add_ghost_block()
+			GameManager.creatorManager.snapIndex = 0
+		#10:
+			#selectedOption = tp
+			#GameManager.creatorManager.add_ghost_block()
+			#GameManager.creatorManager.snapIndex = 0
 		_:
 			selectedOption = null

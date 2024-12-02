@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://ey5h26ps67p8"]
+[gd_scene load_steps=15 format=3 uid="uid://ey5h26ps67p8"]
 
 [ext_resource type="Texture2D" uid="uid://b5dv8jp671c7n" path="res://Assets/GLB format/Textures/colormap.png" id="1_dx15l"]
 [ext_resource type="Script" path="res://Scripts/Level/PushByFan.gd" id="2_lxm6j"]
+[ext_resource type="Script" path="res://Scripts/MapCreator/SnapPoint.gd" id="3_7k3jh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egxdu"]
 resource_name = "colormap"
@@ -133,10 +134,13 @@ height = 0.2
 radial_segments = 32
 rings = 2
 
-[node name="fan-four" type="MeshInstance3D"]
+[node name="fan-four" type="MeshInstance3D" node_paths=PackedStringArray("listOfSnapPoints")]
 mesh = SubResource("ArrayMesh_8yhix")
 skeleton = NodePath("")
 script = ExtResource("2_lxm6j")
+fanRange = 10
+fanPower = 1
+listOfSnapPoints = [NodePath("SnappingPoint"), NodePath("SnappingPoint2")]
 
 [node name="fan2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 1.36424e-12, -2.32831e-10, -1.36424e-12, 1, 1.16415e-10, 2.32831e-10, -1.16415e-10, 1, -8.18545e-12, 0.3, -1.86265e-09)
@@ -149,9 +153,9 @@ libraries = {
 }
 autoplay = "spinningFan"
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_steqm")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
@@ -164,3 +168,11 @@ mesh = SubResource("CylinderMesh_y1kbh")
 emission_shape = 2
 emission_sphere_radius = 0.3
 particle_flag_align_y = true
+
+[node name="SnappingPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("3_7k3jh")
+
+[node name="SnappingPoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+script = ExtResource("3_7k3jh")

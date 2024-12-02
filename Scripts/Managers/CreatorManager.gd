@@ -39,6 +39,9 @@ func _process(_delta):
 		snapIndex += 1
 		if snapIndex >= ghostBlock.listOfSnapPoints.size():
 			snapIndex = 0
+	
+	if Input.is_action_just_pressed("Save"):
+		export_map()
 
 #undos block placed last 
 func undo():

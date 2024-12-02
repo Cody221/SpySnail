@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnvkp4tpujyrb"]
+[gd_scene load_steps=28 format=3 uid="uid://cnvkp4tpujyrb"]
 
 [ext_resource type="PackedScene" uid="uid://fni88ahebbs6" path="res://Scenes/MapBuildingBlocks/ramp_start_d.tscn" id="1_xt8xu"]
 [ext_resource type="PackedScene" uid="uid://dr1fjso7pmyd8" path="res://Scenes/MapBuildingBlocks/ramp_d_long.tscn" id="2_6mtxk"]
@@ -13,12 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://dev08qkmbx7ac" path="res://Scenes/MapBuildingBlocks/straight.tscn" id="10_rqxui"]
 [ext_resource type="PackedScene" uid="uid://chq4d1ibjpj8v" path="res://Scenes/MapBuildingBlocks/helix_left.tscn" id="11_qthph"]
 [ext_resource type="PackedScene" uid="uid://dvyrqxbnx4mx6" path="res://Scenes/MapBuildingBlocks/curve.tscn" id="12_didi2"]
-[ext_resource type="PackedScene" uid="uid://cap72od1fx3oq" path="res://Scenes/MapBuildingBlocks/split_double_sides_2.tscn" id="13_irnwm"]
+[ext_resource type="PackedScene" uid="uid://cap72od1fx3oq" path="res://Scenes/MapBuildingBlocks/split_double_sides.tscn" id="13_irnwm"]
 [ext_resource type="PackedScene" uid="uid://2y3l02516nuj" path="res://Scenes/MapBuildingBlocks/wave_c_2.tscn" id="14_dehbs"]
 [ext_resource type="PackedScene" uid="uid://8ri3otmrvco0" path="res://Scenes/MapBuildingBlocks/split_left.tscn" id="15_8xkx3"]
 [ext_resource type="PackedScene" uid="uid://c53fmdhfg2snf" path="res://Scenes/MapBuildingBlocks/goal_square.tscn" id="16_p4i8o"]
 [ext_resource type="PackedScene" uid="uid://ey5h26ps67p8" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/fan_four.tscn" id="17_36fu6"]
 [ext_resource type="PackedScene" uid="uid://pobc3834haqk" path="res://Scenes/MapBuildingBlocks/ActionBuildingBlocks/teleporter.tscn" id="18_1gtw2"]
+[ext_resource type="Texture2D" uid="uid://j145137dbril" path="res://Assets/SkyBoxes/Sky_2.png" id="18_jc2ub"]
 
 [sub_resource type="Animation" id="Animation_07dws"]
 resource_name = "AnimatedSign"
@@ -95,19 +96,17 @@ _data = {
 
 [sub_resource type="BoxMesh" id="BoxMesh_v4sf0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xtgn"]
-sky_top_color = Color(0.721569, 0.647059, 0.494118, 1)
-sky_horizon_color = Color(0.62083, 0.644479, 0.79567, 1)
-sky_curve = 0.178381
-ground_bottom_color = Color(0.228724, 0.157851, 0.0964701, 1)
-ground_curve = 0.005
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c2l1q"]
+panorama = ExtResource("18_jc2ub")
 
-[sub_resource type="Sky" id="Sky_7v6wr"]
-sky_material = SubResource("ProceduralSkyMaterial_8xtgn")
+[sub_resource type="Sky" id="Sky_k3h4b"]
+sky_material = SubResource("PanoramaSkyMaterial_c2l1q")
 
 [sub_resource type="Environment" id="Environment_uj2uo"]
 background_mode = 2
-sky = SubResource("Sky_7v6wr")
+sky = SubResource("Sky_k3h4b")
+fog_enabled = true
+fog_sky_affect = 0.04
 
 [node name="PlayTest" type="Node3D"]
 
@@ -123,7 +122,7 @@ transform = Transform3D(0.960391, 0, -0.278656, 0, 1, 0, 0.278656, 0, 0.960391, 
 mesh = ExtResource("7_6gxl1")
 
 [node name="Fan-simple-two" type="MeshInstance3D" parent="Map/Sign/Sign"]
-transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -1.04016e-18, 3.49691e-07, 5.28008e-14, 1, -0.364637, 0.240517, 0.00101435)
+transform = Transform3D(-1, -1.50996e-07, 3.49691e-07, 1.50996e-07, -1, -1.43996e-18, 3.49691e-07, 5.28004e-14, 1, -0.364637, 0.240517, 0.00101435)
 mesh = ExtResource("8_axwuk")
 
 [node name="Fan-simple-two2" type="MeshInstance3D" parent="Map/Sign/Sign"]
@@ -142,7 +141,7 @@ mesh = SubResource("BoxMesh_v4sf0")
 skeleton = NodePath("../..")
 
 [node name="Label3D" type="Label3D" parent="Map/Sign/Sign/MeshInstance3D"]
-transform = Transform3D(0.320235, 0, 0, 0, 0.96274, 0, 0, 0, 7.17033, 0, 0.0557699, 0.530207)
+transform = Transform3D(0.320235, 0, -1.49012e-08, 0, 0.96274, 0, 0, 0, 7.17033, 0, 0.0557699, 0.530207)
 double_sided = false
 text = "Hold right click to look around
 
@@ -178,12 +177,11 @@ mesh = SubResource("BoxMesh_v4sf0")
 skeleton = NodePath("../..")
 
 [node name="Label3D" type="Label3D" parent="Map/Sign2/Sign/MeshInstance3D"]
-transform = Transform3D(0.323162, 0, 0, 0, 1.4157, 0, 0, 0, 7.17033, 0, 0.0320101, 0.530205)
+transform = Transform3D(0.323162, 0, 4.47035e-08, 0, 1.4157, 0, 0, 0, 7.17033, -2.38419e-07, 0.0320101, 0.530205)
 double_sided = false
-text = "Press Spacebar to jump
-
-falling will reset you
- be careful!"
+text = "Press and hold spacebar to
+ charge then release to jump!
+"
 font = ExtResource("9_cmh0k")
 font_size = 28
 

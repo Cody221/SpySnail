@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://m2pdr5v00uwe"]
+[gd_scene load_steps=7 format=3 uid="uid://m2pdr5v00uwe"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/LevelUIController.gd" id="1_cvxgr"]
 [ext_resource type="Theme" uid="uid://iv1up66heb63" path="res://the_theme.tres" id="1_ka0o4"]
 [ext_resource type="Texture2D" uid="uid://bmadxh2nar3f8" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_border.png" id="3_o864f"]
 [ext_resource type="Texture2D" uid="uid://762yb0f57l7n" path="res://Assets/Textues/PNG/Yellow/Default/button_rectangle_gradient.png" id="4_5ypai"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuChangeButton.gd" id="5_8iiuc"]
+[ext_resource type="Script" path="res://Scripts/Menu/SceneChangeButton.gd" id="6_0a2r6"]
 
 [node name="UI" type="MarginContainer"]
+process_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,11 +52,13 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="RestartButton" type="Button" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("1_ka0o4")
 text = "Restart"
 
 [node name="ReturnButton" type="Button" parent="SummaryWindow/HBoxContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("1_ka0o4")
 text = "Return
@@ -76,3 +81,31 @@ max_value = 10.0
 step = 0.1
 texture_under = ExtResource("3_o864f")
 texture_progress = ExtResource("4_5ypai")
+
+[node name="EscMenu" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EscMenu"]
+process_mode = 3
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="EscMenu/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("menuToHide")]
+layout_mode = 2
+theme = ExtResource("1_ka0o4")
+text = "Resume"
+script = ExtResource("5_8iiuc")
+menuToHide = NodePath("../../..")
+
+[node name="MainMenuButton" type="Button" parent="EscMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme = ExtResource("1_ka0o4")
+text = "main menu"
+script = ExtResource("6_0a2r6")
+scenePath = "res://Scenes/Menus/MainMenu.tscn"

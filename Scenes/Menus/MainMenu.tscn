@@ -23,17 +23,19 @@ alignment = 1
 layout_mode = 2
 
 [node name="TextureRect" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("1_x54d6")
 theme_type_variation = &"HeaderLarge"
-text = " Marble Game"
+text = " Marble Mania"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="HBoxContainer/VBoxContainer" node_paths=PackedStringArray("menuToHide", "menuToShow")]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_x54d6")
 theme_override_font_sizes/font_size = 35
 text = "Play"
@@ -42,8 +44,9 @@ menuToHide = NodePath("../..")
 menuToShow = NodePath("../../../LevelGrid")
 
 [node name="MapMakerButton" type="Button" parent="HBoxContainer/VBoxContainer" node_paths=PackedStringArray("menuToHide", "menuToShow")]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_x54d6")
 theme_override_font_sizes/font_size = 35
 text = "Create"
@@ -57,16 +60,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_x54d6")
 
-[node name="TestButton" type="Button" parent="LevelGrid"]
-layout_mode = 2
-theme = ExtResource("1_x54d6")
-theme_override_font_sizes/font_size = 20
-disabled = true
-text = "Test"
-script = ExtResource("4_wmn65")
-scenePath = "res://Scenes/Maps/Test.tscn"
-sceneType = 1
-
 [node name="TutorialButton" type="Button" parent="LevelGrid"]
 layout_mode = 2
 theme = ExtResource("1_x54d6")
@@ -74,6 +67,24 @@ theme_override_font_sizes/font_size = 20
 text = "tutorial"
 script = ExtResource("4_wmn65")
 scenePath = "res://Scenes/Maps/PlayTest.tscn"
+sceneType = 1
+
+[node name="Level1Button" type="Button" parent="LevelGrid"]
+layout_mode = 2
+theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 20
+text = "Level 1"
+script = ExtResource("4_wmn65")
+scenePath = "res://Scenes/Maps/Map1.tscn"
+sceneType = 1
+
+[node name="Level2Button" type="Button" parent="LevelGrid"]
+layout_mode = 2
+theme = ExtResource("1_x54d6")
+theme_override_font_sizes/font_size = 20
+text = "Level 2"
+script = ExtResource("4_wmn65")
+scenePath = "res://Scenes/Maps/Map2.tscn"
 sceneType = 1
 
 [node name="ReturnButton" type="Button" parent="LevelGrid" node_paths=PackedStringArray("menuToHide", "menuToShow")]

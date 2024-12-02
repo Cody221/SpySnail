@@ -6,4 +6,5 @@ func _ready():
 	connect("body_entered", _area_body_entered)
 
 func _area_body_entered(_body):
-	GameManager.levelManager.ShowEndScreen()
+	if GameManager.activeScene == GameManager.SCENE_TYPE.LEVEL:
+		GameManager.levelManager.ShowEndScreen()
